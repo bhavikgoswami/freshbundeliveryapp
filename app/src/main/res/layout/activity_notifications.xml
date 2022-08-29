@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="NotificationsActivityBinding" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.activity.NotificationsActivity">
+
+        <include
+            android:id="@+id/notificationToolbar"
+            layout="@layout/toolbar_notification" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/notificationListRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/notificationToolbar"
+            android:overScrollMode="never" />
+
+        <LinearLayout
+            android:id="@+id/noNotification"
+            android:layout_centerInParent="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/emptyCartImgView"
+                android:layout_width="@dimen/_160sdp"
+                android:layout_height="@dimen/_160sdp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_no_notification" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

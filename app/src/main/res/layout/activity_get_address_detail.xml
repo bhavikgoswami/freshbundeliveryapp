@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.activity.GetAddressDetailActivity">
+
+    <data class="GetAddressDetailActivityBinding" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/getAddressToolbar"
+            layout="@layout/toolbar_layout" />
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/getAddressToolbar"
+            >
+
+            <LinearLayout
+                android:id="@+id/rootLnrLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/SixteenBlackBoldTheme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_11sdp"
+                        android:layout_weight="1"
+                        android:text="@string/lbl_current_address"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/editCurrentAddressBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_weight="1"
+                        android:text="Edit"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/color_theme" />
+
+                </LinearLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:background="@color/white"
+                    app:cardCornerRadius="@dimen/_10sdp"
+
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/_4sdp">
+
+                        <LinearLayout
+                            android:id="@+id/flatNoLirLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+
+                            <androidx.appcompat.widget.AppCompatTextView
+
+                                style="@style/TwelveBlackBoldTheme"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_weight="1"
+                                android:text="@string/lbl_get_address_flat_no_building_name"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="bold" />
+
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/flatNoTxtView"
+                                style="@style/TwelveGrayRegularTheme"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="normal" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/areaLirLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/flatNoLirLayout"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/TwelveBlackBoldTheme"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_weight="1"
+                                android:text="@string/lbl_get_address_locality_area_street"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="bold" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/areaTxtView"
+                                style="@style/TwelveGrayRegularTheme"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="normal" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/addressLirLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/areaLirLayout"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+
+                                style="@style/TwelveBlackBoldTheme"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_weight="1"
+                                android:text="@string/lbl_get_address_address"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="bold" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+
+                                android:id="@+id/addressTxtView"
+                                style="@style/TwelveGrayRegularTheme"
+                                android:layout_width="@dimen/_200sdp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="normal" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/landmarkLirLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/addressLirLayout"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+
+                                style="@style/TwelveBlackBoldTheme"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_weight="1"
+                                android:text="@string/lbl_landmark"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="bold" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+
+                                android:id="@+id/landmarkTxtView"
+                                style="@style/TwelveGrayRegularTheme"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="normal" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/stateLirLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/landmarkLirLayout"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/TwelveBlackBoldTheme"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_weight="1"
+                                android:text="@string/lbl_get_address_state"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="bold" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+
+                                android:id="@+id/stateTxtView"
+                                style="@style/TwelveGrayRegularTheme"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="normal" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/cityLirLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/stateLirLayout"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+
+                                style="@style/TwelveBlackBoldTheme"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_weight="1"
+                                android:text="@string/lbl_get_address_city"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="bold" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+
+                                android:id="@+id/cityTxtView"
+                                style="@style/TwelveGrayRegularTheme"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="normal" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/zipCodeLirLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/cityLirLayout"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginBottom="@dimen/_8sdp"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+
+                                style="@style/TwelveBlackBoldTheme"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_weight="1"
+                                android:text="@string/lbl_get_address_zip_code"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="bold" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+
+                                android:id="@+id/zipCodeTxtView"
+                                style="@style/TwelveGrayRegularTheme"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="normal" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/SixteenBlackBoldTheme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_11sdp"
+                        android:layout_weight="1"
+                        android:text="@string/lbl_permanent_address"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/editPermanentAddressBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_weight="1"
+                        android:text="Edit"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/color_theme" />
+
+                </LinearLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:background="@color/white"
+                    app:cardCornerRadius="@dimen/_10sdp"
+
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/_4sdp">
+
+                        <LinearLayout
+                            android:id="@+id/flatNoPermanentAddressLirLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+
+                            <androidx.appcompat.widget.AppCompatTextView
+
+                                style="@style/TwelveBlackBoldTheme"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_weight="1"
+                                android:text="@string/lbl_get_address_flat_no_building_name"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="bold" />
+
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/flatNoPermanentAddressTxtView"
+                                style="@style/TwelveGrayRegularTheme"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="normal" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/areaPermanentAddressLirLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/flatNoPermanentAddressLirLayout"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/TwelveBlackBoldTheme"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_weight="1"
+                                android:text="@string/lbl_get_address_locality_area_street"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="bold" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/areaPermanentAddressTxtView"
+                                style="@style/TwelveGrayRegularTheme"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="normal" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/permanentAddressLirLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/areaPermanentAddressLirLayout"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+
+                                style="@style/TwelveBlackBoldTheme"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_weight="1"
+                                android:text="@string/lbl_get_address_address"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="bold" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+
+                                android:id="@+id/permanentAddressTxtView"
+                                style="@style/TwelveGrayRegularTheme"
+                                android:layout_width="@dimen/_200sdp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="normal" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/landmarkPermanentAddressLirLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/permanentAddressLirLayout"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+
+                                style="@style/TwelveBlackBoldTheme"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_weight="1"
+                                android:text="@string/lbl_landmark"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="bold" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+
+                                android:id="@+id/landmarkPermanentAddressTxtView"
+                                style="@style/TwelveGrayRegularTheme"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="normal" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/statePermanentAddressLirLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/landmarkPermanentAddressLirLayout"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/TwelveBlackBoldTheme"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_weight="1"
+                                android:text="@string/lbl_get_address_state"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="bold" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+
+                                android:id="@+id/statePermanentAddressTxtView"
+                                style="@style/TwelveGrayRegularTheme"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="normal" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/cityPermanentAddressLirLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/statePermanentAddressLirLayout"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+
+                                style="@style/TwelveBlackBoldTheme"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_weight="1"
+                                android:text="@string/lbl_get_address_city"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="bold" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+
+                                android:id="@+id/cityPermanentAddressTxtView"
+                                style="@style/TwelveGrayRegularTheme"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="normal" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/zipCodePermanentAddressLirLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/cityPermanentAddressLirLayout"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginBottom="@dimen/_8sdp"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+
+                                style="@style/TwelveBlackBoldTheme"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_weight="1"
+                                android:text="@string/lbl_get_address_zip_code"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="bold" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+
+                                android:id="@+id/zipCodePermanentAddressTxtView"
+                                style="@style/TwelveGrayRegularTheme"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="normal" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.fragment.AccountFragment">
+
+    <data class="ProfileFragmentBinding" />
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:padding="@dimen/_8sdp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/profilePicImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/profilePicImageView1"
+                        android:layout_width="@dimen/_80sdp"
+                        android:layout_height="@dimen/_80sdp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_logo" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="-10dp"
+                        android:layout_toRightOf="@id/profilePicImageView1"
+                        android:src="@drawable/ic_add_img" />
+
+                </RelativeLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/nameTxtView"
+                    android:layout_gravity="center"
+                    style="@style/FourteenwithBlackTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    app:layout_constraintEnd_toEndOf="@+id/endGuideline"
+                    app:layout_constraintStart_toStartOf="@+id/startGuideline"
+                    app:layout_constraintTop_toBottomOf="@+id/profileRelativeLayout" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/emailTxtView"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    app:layout_constraintEnd_toEndOf="@+id/endGuideline"
+                    app:layout_constraintStart_toStartOf="@+id/startGuideline"
+                    app:layout_constraintTop_toBottomOf="@+id/nameTxtView" />
+
+                <RelativeLayout
+                    android:id="@+id/profileSettingRLtLayout"
+                    android:padding="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@id/ivArrow1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/TwelveBlackBoldTheme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lbl_profile_settings" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/TwelvewithgrayTheme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:text="@string/lbl_profile_settings_desc" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ivArrow1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_right_arrow"
+                        app:tint="@color/color_theme" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/documentVerificationRLtLayout"
+                    android:padding="@dimen/_8sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toStartOf="@id/ivArrow2"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/TwelveBlackBoldTheme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lbl_document_verifications" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/TwelvewithgrayTheme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:text="@string/lbl_verified" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ivArrow2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_right_arrow"
+                        app:tint="@color/color_theme" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/addressRLtLayout"
+                    android:padding="@dimen/_8sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toStartOf="@id/ivArrow3"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/TwelveBlackBoldTheme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lbl_my_address" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/TwelvewithgrayTheme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:text="@string/lbl_your_addresses" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ivArrow3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_right_arrow"
+                        app:tint="@color/color_theme" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/bankAccRLtLayout"
+                    android:padding="@dimen/_8sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toStartOf="@id/ivArrow4"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/TwelveBlackBoldTheme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lbl_bank_account_details" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/TwelvewithgrayTheme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:text="@string/lbl_bank_acc_desc" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ivArrow4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_right_arrow"
+                        app:tint="@color/color_theme" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/ReferAppRLtLayout"
+                    android:padding="@dimen/_8sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toStartOf="@id/ivArrow5"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/TwelveBlackBoldTheme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lbl_refer_app" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/TwelvewithgrayTheme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:text="@string/lbl_share_app_desc" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ivArrow5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_right_arrow"
+                        app:tint="@color/color_theme" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/HelpAndSupportRLtLayout"
+                    android:padding="@dimen/_8sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toStartOf="@id/ivArrow6"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/TwelveBlackBoldTheme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lbl_help_amp_support" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/TwelvewithgrayTheme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:text="@string/lbl_get_support_from_us" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ivArrow6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_right_arrow"
+                        app:tint="@color/color_theme" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/TermPolicyRLtLayout"
+                    android:padding="@dimen/_8sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toStartOf="@id/ivArrow7"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/TwelveBlackBoldTheme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lbl_term_privacy_amp_policy" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/TwelvewithgrayTheme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:text="@string/lbl_term_desc" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ivArrow7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_right_arrow"
+                        app:tint="@color/color_theme" />
+                </RelativeLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/logoutTxtView"
+                    style="@style/TwelveBlackBoldTheme"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_8sdp"
+                    android:text="@string/lbl_logout" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </RelativeLayout>
+
+</layout>

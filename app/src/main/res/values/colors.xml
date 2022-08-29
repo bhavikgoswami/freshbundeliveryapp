@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teals_700">#FF018786</color>
+    <color name="teal_700">#FFC50C</color>
+    <color name="black">#1c1c1c</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="on_going">#F69576</color>
+    <color name="success">#2A9D8F</color>
+    <color name="menu_active">#FFC727</color>
+    <color name="menu_default">#979797</color>
+    <color name="disable_gray">#858585</color>
+    <color name="color_box">#E5E5E5</color>
+    <color name="color_text">#FFC50C</color>
+    <color name="color_text_profile">#222B45</color>
+    <color name="color_border_line">#EDF1F7</color>
+    <color name="color_transparent_yellow">#40FFC50C</color>
+    <color name="color_edit_text_gray">#E9E9E9</color>
+    <color name="color_gray_category">#F2F4F6</color>
+
+    <color name="color_theme">#FFC727</color>
+    <color name="color_gray">#979797</color>
+    <color name="color_gray_search">#F4F5F7</color>
+    <color name="color_disable_gray">#858585</color>
+    <color name="color_home_gray">#B5B5B5</color>
+    <color name="background">#F1F1F1</color>
+    <color name="color_red">#E74155</color>
+    <color name="color_blue">#0000FF</color>
+    <color name="color_green">#36B37E</color>
+    <color name="color_bottomsheet">#BDBDBD</color>
+    <color name="color_btn_disable">#D8D8D8</color>
+    <color name="color_pink">#33E74155</color>
+    <color name="color_red_text">#E74155</color>
+    <color name="color_gray_text">#B5B5B5</color>
+    <color name="color_gray_add_file_btn">#D9D9D9</color>
+
+    <!-- <color name="color_theme">#FFC727</color>-->
+    <!--  <color name="color_gray">#979797</color>-->
+    <!--&lt;!&ndash; <color name="color_disable_gray">#858585</color>&ndash;&gt;
+     <color name="color_background">##E5E5E5</color>
+     <color name="text_border_color">#EDF1F7</color>
+     <color name="text_hint_color">#8F9BB3</color>
+     <color name="buttonTextColor">#FFFFFF</color>
+ &lt;!&ndash;    <color name="otp_text_color">#FFC727</color>&ndash;&gt;
+     <color name="textcolor">#FF000000</color>
+     <color name="buttontextcolor">#FFC50C</color>-->
+
+
+</resources>

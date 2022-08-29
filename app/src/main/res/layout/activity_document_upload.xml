@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.activity.DocumentUploadActivity">
+
+    <data class="DocumentUploadActivityBinding" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+
+        <include
+            android:id="@+id/documentUploadToolbar"
+            layout="@layout/toolbar_layout" />
+
+
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/_16sdp">
+
+
+
+                <RelativeLayout
+                    android:id="@+id/drivingLicenseRltLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_black_rounded_corner_border"
+                    android:padding="@dimen/_8sdp">
+
+                    <ImageView
+                        android:id="@+id/dlDocumentIconImgView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/shape_yellow_transparant_rounded_corner"
+                        android:padding="@dimen/_8sdp"
+                        android:src="@drawable/ic_aadhar" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_toStartOf="@id/drivingLicenseDocumentUploadImgView"
+                        android:layout_toEndOf="@+id/dlDocumentIconImgView"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/TenBlackRegularTheme"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lbl_driving_license" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/EightGrayRegularTheme"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:minLines="3"
+                            android:text="@string/dl_desc" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/drivingLicenseDocumentUploadImgView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_upload" />
+
+                    <ImageView
+                        android:id="@+id/drivingLicenseDocumentAddedImgView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/shape_added_document_icon" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/aadharCardRltLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:background="@drawable/shape_black_rounded_corner_border"
+                    android:padding="@dimen/_8sdp">
+
+                    <ImageView
+                        android:id="@+id/aadharDocumentIconImgView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/shape_yellow_transparant_rounded_corner"
+                        android:padding="@dimen/_8sdp"
+                        android:src="@drawable/ic_aadhar" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_toStartOf="@id/aadhaarCardUploadImgView"
+                        android:layout_toEndOf="@+id/aadharDocumentIconImgView"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/TenBlackRegularTheme"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/aadhar_card_verification" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/EightGrayRegularTheme"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:minLines="3"
+                            android:text="@string/aadhar_desc" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/aadhaarCardUploadImgView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_upload"
+                        />
+
+                    <ImageView
+                        android:id="@+id/aadhaarCardAddedImgView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/shape_added_document_icon"
+                        />
+
+
+                </RelativeLayout>
+
+
+
+
+                <CheckBox
+                    android:id="@+id/uploadDocumentCheckBox"
+                    style="@style/EightGrayRegularTheme"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:text="@string/document_upload_desc" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/uploadDocumentButton"
+                    style="@style/BlackBackgroundRegularButtonTheme"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:stateListAnimator="@null"
+                    android:text="@string/lbl_save"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

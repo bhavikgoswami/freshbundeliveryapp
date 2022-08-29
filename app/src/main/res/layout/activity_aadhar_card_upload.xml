@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data class="AadhaarCardUploadActivityBinding" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+        tools:context=".ui.activity.AadharCardUploadActivity">
+
+        <include
+            android:id="@+id/documentUploadToolbar"
+            layout="@layout/toolbar_layout" />
+
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/documentUploadToolbar"
+            android:layout_marginBottom="@dimen/_48sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/_16sdp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/upload_document" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/TwelveTextSemiboldTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:text="@string/lbl_upload_aadhar_card_photo" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/EightTextHintTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:text="@string/dec_upload_aadhar_card" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/aadhaarCardFrontImgView"
+                        android:layout_width="@dimen/_132sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_weight="40"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/aadhar_card_front"
+                        app:cardCornerRadius="@dimen/_4sdp" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/aadhaarCardBackImgView"
+                        android:layout_width="@dimen/_132sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_weight="40"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/adhar_card_back"
+                        app:cardCornerRadius="@dimen/_4sdp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/aadhaarCardFrontImgUploadBtn"
+                        style="@style/GrayBackgroundRegularButtonTheme"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_weight="50"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_marginVertical="@dimen/_4sdp"
+                        android:background="@drawable/shape_gray_rounded_btn_corner"
+                        android:paddingLeft="@dimen/_24sdp"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:paddingEnd="@dimen/_6sdp"
+                        android:paddingBottom="@dimen/_2sdp"
+                        android:text="@string/lbl_front_side"
+                        android:textAllCaps="false" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/aadhaarCardBackImgUploadBtn"
+                        style="@style/GrayBackgroundRegularButtonTheme"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_weight="50"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_marginVertical="@dimen/_4sdp"
+                        android:background="@drawable/shape_gray_rounded_btn_corner"
+                        android:paddingLeft="@dimen/_24sdp"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:paddingEnd="@dimen/_6sdp"
+                        android:paddingBottom="@dimen/_2sdp"
+                        android:text="@string/lbl_back_side"
+                        android:textAllCaps="false" />
+
+                </LinearLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.App.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:hint="@string/lbl_name_on_aadhar_card"
+                    android:textColorHint="@color/color_disable_gray"
+                    app:boxStrokeColor="@color/black"
+                    app:boxStrokeWidth="0.75dp"
+                    app:boxStrokeWidthFocused="1dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/aadhaarCardUserNameEdtView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/black" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.App.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:hint="@string/lbl_number_on_aadhar_card"
+                    android:textColorHint="@color/color_disable_gray"
+                    app:boxStrokeColor="@color/black"
+                    app:boxStrokeWidth="0.75dp"
+                    app:boxStrokeWidthFocused="1dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/aadhaarCardNumberEdtView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:maxLength="14"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:textColor="@color/black" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/aadhaarCardDetailSaveBtn"
+            style="@style/BlackBackgroundRegularButtonTheme"
+            android:visibility="gone"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:stateListAnimator="@null"
+            android:text="@string/lbl_save"
+            android:textAllCaps="false" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/aadhaarCardDetailUpdateBtn"
+            style="@style/BlackBackgroundRegularButtonTheme"
+            android:visibility="gone"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:stateListAnimator="@null"
+            android:text="@string/lbl_update"
+            android:textAllCaps="false" />
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/_4sdp"
+    android:layout_marginTop="@dimen/_8sdp"
+    android:id="@+id/relRoot"
+    android:layout_marginEnd="@dimen/_4sdp"
+    android:layout_marginBottom="@dimen/_8sdp"
+    android:background="@drawable/shape_gray_rounded_corner"
+    android:orientation="horizontal"
+    android:padding="@dimen/_8sdp">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/reasonTitleTxtView"
+        style="@style/TwelveBlackNormalTheme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/rbReason"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_4sdp"
+        android:text="@string/lbl_not_delivered" />
+
+    <ImageView
+        android:id="@+id/rbReason"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:src="@drawable/ic_radio_default" />
+
+</RelativeLayout>

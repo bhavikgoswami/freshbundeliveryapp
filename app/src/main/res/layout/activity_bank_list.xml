@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data class="BankListActivityDialogFragmentBinding"/>
+
+    <RelativeLayout
+        android:id="@+id/rootFrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.activity.BankListActivity">
+
+        <include
+            android:id="@+id/bankListToolbar"
+            layout="@layout/toolbar_layout" />
+
+
+        <LinearLayout
+            android:id="@+id/searchBarLinLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@+id/bankListToolbar">
+
+             <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                 android:id="@+id/searchAutoCompleteTextView"
+                 style="@style/ThirteenGraySearchBoxNormalTheme"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginStart="@dimen/_16sdp"
+                 android:layout_marginEnd="@dimen/_16sdp"
+                 android:drawableStart="@drawable/ic_search_box"
+                 android:drawablePadding="@dimen/_8sdp"
+                 android:drawableTint="@color/color_gray"
+                 android:focusable="true"
+                 android:hint="@string/lbl_search"
+                 android:imeOptions="actionSearch"
+                 android:maxLines="1"
+                 android:textColorHint="@color/color_gray"
+                 tools:ignore="RtlSymmetry" />
+        </LinearLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/searchBarLinLayout"
+            android:layout_marginBottom="@dimen/_48sdp">
+
+
+            <LinearLayout
+                android:id="@+id/rootLnrLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/_16sdp">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/bankListRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                     />
+
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/selectedBankApplyBtn"
+            style="@style/BlackBackgroundRegularButtonTheme"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:stateListAnimator="@null"
+            android:text="@string/lbl_apply"
+            android:textAllCaps="false" />
+    </RelativeLayout>
+
+
+
+</layout>

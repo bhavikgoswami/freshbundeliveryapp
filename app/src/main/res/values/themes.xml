@@ -1,0 +1,406 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="NepZepTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/color_theme</item>
+        <item name="colorPrimaryVariant">@color/color_theme</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/black</item>
+        <item name="colorSecondaryVariant">@color/color_theme</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="black_color">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/black</item>
+        <!-- Customize your theme here. -->
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+        <item name="app_theme_color">@color/color_theme</item>
+        <item name="app_background_color">@color/white</item>
+        <item name="white_color">@color/white</item>
+        <item name="active_text_black_color">@color/black</item>
+        <item name="default_gray_color">@color/menu_default</item>
+        <item name="gray_color_search">@color/color_gray_search</item>
+        <item name="inactive_color">@color/disable_gray</item>
+    </style>
+
+    <style name="TwentyFourBlackNormalTheme">
+        <item name="android:textColor">?attr/active_text_black_color</item>
+        <item name="android:textSize">@dimen/_24ssp</item>
+        <item name="fontFamily">@font/opensansbold</item>
+    </style>
+
+    <style name="Widget.App.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.TextInputLayout</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.App.SmallComponent</item>
+        //Changes the Shape Apperance
+        <!--        <item name="hintTextColor">@color/color_disable_gray</item>   //When you added this line it will applies only one color in normal and activate state i.e colorOnSurface color-->
+    </style>
+
+    <style name="ThemeOverlay.App.TextInputLayout" parent="">
+        <item name="colorPrimary">@color/black</item>  //Activated color
+        <item name="colorOnSurface">@color/color_edit_text_gray</item>    //Normal color
+        <item name="colorError">@color/color_red</item>        //Error color
+        //Text Appearance styles
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.App.Subtitle1</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.App.Caption</item>
+        <item name="editTextStyle">@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox</item>
+    </style>
+
+    <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">4dp</item>
+    </style>
+
+    <style name="TwentyBlackBoldTheme">
+        <item name="android:textColor">?attr/active_text_black_color</item>
+        <item name="fontFamily">@font/opensansbold</item>
+        <item name="android:textSize">@dimen/_20ssp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextAppearance.App.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:fontFamily">@font/opensansregular</item>
+    </style>
+
+    <style name="TextAppearance.App.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:fontFamily">@font/opensansregular</item>
+    </style>
+
+    <style name="datepicker" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorAccent">@color/color_theme</item>
+    </style>
+
+    <style name="YellowButtonWithTwelveStyle">
+        <item name="android:textColor">?attr/white_color</item>
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:background">@drawable/shape_yellow_rounded_corner</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ThirteenGraySearchBoxNormalTheme">
+        <item name="android:textColor">@color/black</item>
+        <item name="hintTextColor">@color/color_gray</item>
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:background">@drawable/shape_gray_search_rounded_corner</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="YellowButtonWithFourteenStyle">
+        <item name="android:textColor">?attr/white_color</item>
+        <item name="fontFamily">@font/opensanssemibold</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:background">@drawable/shape_yellow_rounded_corner</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TenTextHintTheme">
+        <item name="android:textColor">@color/color_gray</item>
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:textSize">@dimen/_10ssp</item>
+
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TwelveTextHintTheme">
+        <item name="android:textColor">@color/color_gray</item>
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+
+    <style name="EightTextHintTheme">
+        <item name="android:textColor">@color/color_gray</item>
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:textSize">@dimen/_8ssp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <style name="OTPTextTheme">
+        <item name="fontFamily">@font/opensansbold</item>
+        <item name="android:textColor">?attr/otpTextColor</item>
+        <!--        <item name="fontFamily">@font/poppins_semi_bold</item>-->
+        <item name="android:textSize">@dimen/_20ssp</item>
+        <item name="android:background">@drawable/shape_gray_rounded_corner</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TwentySixWhiteTextTheme">
+        <item name="android:textColor">?attr/white_color</item>
+        <item name="fontFamily">@font/opensansbold</item>
+        <item name="android:textSize">@dimen/_72ssp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TwelveTextTheme">
+        <item name="android:textColor">?attr/black_color</item>
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TwelveTextSemiboldTheme">
+        <item name="android:textColor">?attr/black_color</item>
+        <item name="fontFamily">@font/opensanssemibold</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+
+    <style name="TextLayouttheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textColorHint">@drawable/colorstate</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:textSize">@dimen/_10ssp</item>
+        <item name="colorControlNormal">#c5c5c5</item>
+        <item name="colorControlActivated">#000000</item>
+        //black color
+        <item name="colorControlHighlight">#000000</item>
+        <item name="android:textStyle">bold</item>
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+
+    </style>
+
+    <style name="TenTextSemiboldTheme">
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:textSize">@dimen/_10ssp</item>
+    </style>
+
+    <style name="TenTextWhiteTheme">
+        <item name="android:textColor">@color/white</item>
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:textSize">@dimen/_10ssp</item>
+    </style>
+
+    <style name="ToolbarTitleTheme">
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:textSize">@dimen/_15ssp</item>
+    </style>
+
+    <style name="BlackButtonWithTenTheme">
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:textSize">@dimen/_10ssp</item>
+    </style>
+
+    <style name="BlackButtonWithTwelveTheme">
+        <item name="android:textColor">@color/color_theme</item>
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:textSize">@dimen/_10ssp</item>
+    </style>
+
+    <style name="SuccessButtonWithTwelveTheme">
+        <item name="android:textColor">@color/white</item>
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:textSize">@dimen/_10ssp</item>
+    </style>
+
+    <style name="TenYellowNormalTheme">
+        <item name="android:textColor">@color/color_theme</item>
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:textSize">@dimen/_10ssp</item>
+    </style>
+
+    <style name="EightYellowNormalTheme">
+        <item name="android:textColor">@color/color_theme</item>
+        <item name="fontFamily">@font/opensansbold</item>
+        <item name="android:textSize">@dimen/_8ssp</item>
+    </style>
+
+
+    <style name="TenYellowBoldTheme">
+        <item name="android:textColor">@color/color_theme</item>
+        <item name="fontFamily">@font/opensansbold</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+    </style>
+
+    <style name="EightBlackBoldTheme">
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/opensansbold</item>
+        <item name="android:textSize">@dimen/_8ssp</item>
+    </style>
+    <style name="TwelveBlackNormalTheme">
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+    </style>
+
+    <style name="TwelveBlackBoldTheme">
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/opensansbold</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TwelvewithYellowTheme">
+        <item name="android:textColor">@color/color_theme</item>
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:textSize">@dimen/_10ssp</item>
+    </style>
+
+
+    <style name="ThirteenwithblueTheme">
+        <item name="android:textColor">@color/color_text_profile</item>
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="FourteenwithBlackTheme">
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/opensanssemibold</item>
+        <item name="android:textSize">@dimen/_14ssp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TwelvewithgrayTheme">
+        <item name="android:textColor">@color/color_gray</item>
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:textSize">@dimen/_10ssp</item>
+    </style>
+
+    <style name="TenBlackBoldTheme">
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/opensansbold</item>
+        <item name="android:textSize">@dimen/_10ssp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="TenBlackRegularTheme">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:textSize">@dimen/_10ssp</item>
+    </style>
+
+    <style name="EightBlackRegularTheme">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:textSize">@dimen/_8ssp</item>
+    </style>
+
+    <style name="SixteenBlackBoldTheme">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="fontFamily">@font/opensansbold</item>
+        <item name="android:textSize">@dimen/_16ssp</item>
+    </style>
+
+    <style name="FourteenBlackRegularTheme">
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:textSize">@dimen/_14ssp</item>
+    </style>
+
+    <style name="EditTextTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorControlNormal">@color/color_gray</item>
+        <item name="colorControlActivated">@color/color_theme</item>
+        <item name="colorControlHighlight">@color/color_theme</item>
+    </style>
+
+    <style name="TwentyFourBlackBoldTheme">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="fontFamily">@font/opensansbold</item>
+        <item name="android:textSize">@dimen/_24ssp</item>
+    </style>
+
+    <style name="TenGrayRegularTheme">
+        <item name="android:textColor">@color/color_gray</item>
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:textSize">@dimen/_10ssp</item>
+    </style>
+
+    <style name="TwelveGrayRegularTheme">
+        <item name="android:textColor">@color/color_gray_text</item>
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+    </style>
+
+    <style name="BlackBackgroundRegularButtonTheme">
+        <item name="android:textColor">@color/white</item>
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:background">@drawable/shape_black_rounded_corner</item>
+    </style>
+
+    <style name="WhiteBackgroundButtonTheme">
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:background">@drawable/shape_white_rounded_corner</item>
+    </style>
+
+    <style name="GrayBackgroundRegularButtonTheme">
+        <item name="android:textColor">@color/color_gray</item>
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:textSize">@dimen/_14ssp</item>
+    </style>
+
+    <style name="TenBlackBackgroundRegularButtonTheme">
+        <item name="android:textColor">@color/color_theme</item>
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:textSize">@dimen/_10ssp</item>
+        <item name="android:background">@drawable/shape_black_rounded_corner</item>
+    </style>
+
+    <style name="EightGrayRegularTheme">
+        <item name="android:textColor">@color/color_gray</item>
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:textSize">@dimen/_8ssp</item>
+    </style>
+
+    <style name="NepZepTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="NepZepTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="NepZepTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!--    Other widget themes-->
+    <style name="TabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">?attr/active_text_black_color</item>
+        <item name="tabSelectedTextColor">?attr/active_text_black_color</item>
+        <item name="tabTextColor">?attr/default_gray_color</item>
+        <item name="tabTextAppearance">@style/TabLayoutTextAppearance</item>
+        <item name="tabPaddingBottom">-16dp</item>
+    </style>
+
+    <style name="TabLayoutTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="TextLabelCustom">
+        <item name="android:textColorHint">@color/color_gray</item>
+        <item name="colorAccent">@color/black</item>
+        <item name="colorControlNormal">#FFC50C</item>
+        <item name="colorControlActivated">#FFC50C</item>
+    </style>
+
+    <style name="MaterialButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="materialThemeOverlay">@style/GreenButtonThemeOverlay
+        </item>
+    </style>
+
+    <style name="GreenButtonThemeOverlay">
+        <item name="android:textColor">@color/white</item>
+        <item name="fontFamily">@font/opensansregular</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="colorPrimary">@color/black</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>

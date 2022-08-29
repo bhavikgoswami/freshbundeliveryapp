@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="MobileNumberActivityBinding" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.activity.MobileNumberActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/termAndPrivacyTxtView"
+            android:background="@color/white"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_35sdp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_joinus" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/nepzepACTxtView"
+                style="@style/SixteenBlackBoldTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:gravity="center"
+                android:text="Join us"
+                android:textColor="@color/black" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/welcomeACTxtView"
+                style="@style/TenGrayRegularTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/lbl_desc_joinus" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/loginFrag_phoneInputLayout"
+                style="@style/Widget.App.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_16sdp"
+                android:hint="@string/lbl_mobile"
+                android:textColorHint="@color/color_disable_gray"
+                app:boxStrokeColor="@color/black"
+                app:boxStrokeWidth="0.75dp"
+                app:boxStrokeWidthFocused="1dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/signInFrag_phoneEdt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:maxLength="10"
+                    android:maxLines="1"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/black" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/sendACBtn"
+                style="@style/BlackBackgroundRegularButtonTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_17sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_17sdp"
+                android:stateListAnimator="@null"
+                android:text="@string/lbl_continue"
+                android:textAllCaps="false" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/termAndPrivacyTxtView"
+                style="@style/EightGrayRegularTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:focusable="false"
+                android:gravity="center"
+                android:padding="@dimen/_8sdp"
+                android:text="@string/lbl_term_privacy"
+                android:textColorHighlight="#00FFFFFF" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</layout>

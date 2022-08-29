@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:layout_marginStart="@dimen/_8sdp"
+    android:layout_marginEnd="@dimen/_8sdp"
+    android:layout_marginBottom="@dimen/_10sdp"
+    app:cardCornerRadius="@dimen/_10sdp"
+    app:cardUseCompatPadding="false"
+    android:background="@color/white"
+    app:cardElevation="-1dp"
+    android:orientation="vertical"
+   >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:orientation="vertical">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_toLeftOf="@id/callImgView"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/orderTypeTxtView"
+                style="@style/EightGrayRegularTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Subscriber" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/customerNameTxtView"
+                style="@style/TwelveBlackNormalTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                tools:text="Sunil Patel" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/callImgView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_call" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:weightSum="5"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/EightGrayRegularTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_delivery_time" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/deliveryTimeTxtView"
+                style="@style/TwelveBlackNormalTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:text="8-10 Mor" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:background="@color/color_bottomsheet" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/EightGrayRegularTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_total_quality" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/totalQualityTxtView"
+                style="@style/TwelveBlackNormalTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:text="003648248" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:background="@color/color_bottomsheet" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/EightGrayRegularTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_order_id" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/orderIdTxtView"
+                style="@style/TwelveBlackNormalTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:text="003648248" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:background="@color/color_bottomsheet" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:scrollIndicators="left"
+        android:scrollbarSize="@dimen/_1sdp"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:layout_marginBottom="@dimen/_4sdp">
+
+        <LinearLayout
+            android:id="@+id/itemProductListLnrLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+    </HorizontalScrollView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:background="@color/color_bottomsheet" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/addressTxtView"
+            style="@style/TwelveGrayRegularTheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_toLeftOf="@id/mapLnrLayout"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="Amul Dairy Rd, Popati Nagar, Anand, Gujarat 388001" />
+
+        <LinearLayout
+            android:id="@+id/mapLnrLayout"
+            style="@style/TenBlackBackgroundRegularButtonTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/_16sdp"
+            android:paddingEnd="@dimen/_16sdp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/TenYellowNormalTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:drawableLeft="@drawable/ic_map"
+                android:drawablePadding="@dimen/_8sdp"
+                android:text="@string/lbl_map"
+                android:textAllCaps="false" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:background="@color/color_bottomsheet" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_4sdp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/relDelivered"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/icDelivered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_delivered" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/lblDeliver"
+                android:layout_below="@id/icDelivered"
+                style="@style/TwelveGrayRegularTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:text="@string/lbl_delivered"
+                android:textAllCaps="false" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@id/lblDeliver"
+                android:layout_alignStart="@id/lblDeliver"
+                android:layout_alignEnd="@id/lblDeliver"
+                android:background="@color/color_bottomsheet" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relVacation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/icVac"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_vacation" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/lblVac"
+                style="@style/TwelveGrayRegularTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/icVac"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:text="@string/lbl_vacation"
+                android:textAllCaps="false" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@id/lblVac"
+                android:layout_alignStart="@id/lblVac"
+                android:layout_alignEnd="@id/lblVac"
+                android:background="@color/color_bottomsheet" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relNotDeliverOrder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/icNotDel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_not_delivered" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/lblNotDel"
+                style="@style/TwelveGrayRegularTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/icNotDel"
+                android:layout_centerHorizontal="true"
+                android:text="@string/lbl_not_delivered"
+                android:textAllCaps="false" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@id/lblNotDel"
+                android:layout_alignStart="@id/lblNotDel"
+                android:layout_alignEnd="@id/lblNotDel"
+                android:background="@color/color_bottomsheet" />
+        </RelativeLayout>
+
+    </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

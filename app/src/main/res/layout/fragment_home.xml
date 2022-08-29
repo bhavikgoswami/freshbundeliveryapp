@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.fragment.HomeFragment">
+
+    <data class="HomeFragmentBinding" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_150sdp"
+                android:background="@color/black"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/todayDateTxtView"
+                    style="@style/TenYellowNormalTheme"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="-20dp"
+                    android:gravity="center"
+                    android:text="" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/numberOfOrderDeliveredTxtView"
+                    style="@style/TwentySixWhiteTextTheme"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="0" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/TenGrayRegularTheme"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-16dp"
+                    android:gravity="center"
+                    android:text="@string/lbl_order_delivered" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <SeekBar
+                    android:id="@+id/orderProgressSeekBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="-6dp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:layout_toStartOf="@id/deliveredNoTxtVnumber"
+                    android:progress="10"
+                    android:progressDrawable="@drawable/progress_drawable"
+                    android:thumb="@drawable/progress_truck" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/deliveredNoTxtVnumber"
+                    style="@style/SixteenBlackBoldTheme"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentEnd="true"
+                    android:background="@color/color_theme"
+                    android:gravity="center"
+                    android:text="0/0" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_130sdp"
+                android:background="@color/color_home_gray"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/_16sdp"
+                android:paddingBottom="@dimen/_16sdp"
+                android:weightSum="3">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_weight="1"
+                    app:cardElevation="-1dp"
+                    app:cardBackgroundColor="@color/color_home_gray"
+                    app:cardCornerRadius="@dimen/_6sdp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:background="@color/white">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_new_subscribers" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/newSubscriberOrderNumberTxtView"
+                        style="@style/TwentyFourBlackBoldTheme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:gravity="center"
+                        android:text="0" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/EightBlackBoldTheme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:gravity="center"
+                        android:text="@string/lbl_new_subscribers"
+                        app:textAllCaps="true" />
+                </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_weight="1"
+                    app:cardElevation="-1dp"
+                    app:cardBackgroundColor="@color/color_home_gray"
+                    app:cardCornerRadius="@dimen/_6sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_new_deliveries" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/totalDeliveryOrderTxtView"
+                        style="@style/TwentyFourBlackBoldTheme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:gravity="center"
+                        android:text="0" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/EightBlackBoldTheme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:gravity="center"
+                        android:text="@string/lbl_delivery"
+                        app:textAllCaps="true" />
+                </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:layout_weight="1"
+                    app:cardElevation="-1dp"
+                    app:cardBackgroundColor="@color/color_home_gray"
+                    app:cardCornerRadius="@dimen/_6sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_calceled_orders" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/totalCancelDeliveryNumberTxtView"
+                        style="@style/TwentyFourBlackBoldTheme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:gravity="center"
+                        android:text="0" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/EightBlackBoldTheme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:gravity="center"
+                        android:text="@string/lbl_cancel_delivery"
+                        app:textAllCaps="true" />
+                </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:textSize="@dimen/_12ssp"
+                app:tabGravity="fill"
+                app:tabIndicatorColor="@color/color_theme"
+                app:tabIndicatorFullWidth="true"
+                app:tabIndicatorHeight="2dp"
+                app:tabMode="fixed"
+                app:tabRippleColor="@android:color/transparent"
+                app:tabSelectedTextColor="@color/color_theme"
+                app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+                app:tabTextColor="@color/white" />
+
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_4sdp"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.activity.EnableLocationActivity">
+
+    <data class="EnableLocationActivityBinding" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/enableLocationToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_back"
+            app:title="" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/_16sdp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_maps" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/FourteenwithBlackTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:gravity="center"
+                android:text="@string/lbl_location_desc" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/enableLocationButton"
+                style="@style/BlackBackgroundRegularButtonTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stateListAnimator="@null"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:text="@string/lbl_enable_location"
+                android:textAllCaps="false" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

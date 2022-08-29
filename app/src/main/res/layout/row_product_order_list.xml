@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginStart="@dimen/_10sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <androidx.cardview.widget.CardView
+        android:id="@+id/prodImageImgView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_4sdp"
+        android:layout_gravity="center_horizontal"
+        app:cardCornerRadius="@dimen/_10sdp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/productImgView"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:padding="@dimen/_4sdp"
+            android:src="@drawable/ic_thumbnail" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/productNameTxtView"
+        style="@style/TwelveBlackNormalTheme"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:lines="2"
+        android:maxLines="2"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:text="Amul Gold"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/unitValueTxtView"
+            style="@style/TwelveBlackBoldTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="50"
+            android:gravity="center_horizontal" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/unitTxtView"
+            style="@style/TwelveBlackBoldTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ml"
+            android:gravity="center_horizontal" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/TwelveBlackNormalTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_1sdp"
+            android:text="-"
+            android:gravity="center_horizontal" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/qtyTxtView"
+            style="@style/TwelveBlackBoldTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_1sdp"
+            android:text="1.00"
+            android:gravity="center_horizontal" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/TwelveBlackBoldTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="qty"
+            android:gravity="center_horizontal" />
+    </LinearLayout>
+
+</LinearLayout>

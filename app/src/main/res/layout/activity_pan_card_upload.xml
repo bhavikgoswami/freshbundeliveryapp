@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    >
+
+    <data class="PanCardUploadActivityBinding" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+        tools:context=".ui.activity.PanCardUploadActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/documentUploadToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_back">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:paddingEnd="@dimen/_70sdp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/titleTxtView"
+                    style="@style/SixteenBlackBoldTheme"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:text="@string/lbl_document" />
+
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/_16sdp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/upload_document" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/TwelveTextSemiboldTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:text="@string/lbl_upload_pacard_photo" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/EightTextHintTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:text="@string/dec_upload_pan_card" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+
+                    android:id="@+id/panCardImgView"
+                    android:layout_width="@dimen/_130sdp"
+                    android:layout_height="@dimen/_80sdp"
+                     android:layout_marginTop="@dimen/_16sdp"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/pancard"
+                    app:cardCornerRadius="@dimen/_4sdp"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/panCardImageUploadBtn"
+                    style="@style/GrayBackgroundRegularButtonTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_24sdp"
+                    android:background="@drawable/shape_gray_rounded_btn_corner"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingLeft="@dimen/_40sdp"
+                    android:paddingTop="@dimen/_2sdp"
+                    android:paddingEnd="@dimen/_12sdp"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:text=""
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:textAllCaps="false" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.App.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:hint="@string/lbl_name_pancard"
+                    android:textColorHint="@color/color_disable_gray"
+                    app:boxStrokeWidth="0.75dp"
+                    app:boxStrokeColor="@color/black"
+                    app:boxStrokeWidthFocused="1dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/panCardNameEdtView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/black" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.App.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:hint="@string/lbl_number"
+                    android:textColorHint="@color/color_disable_gray"
+                    app:boxStrokeWidth="0.75dp"
+                    app:boxStrokeColor="@color/black"
+                    app:boxStrokeWidthFocused="1dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/panCardNumberEdtView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/black" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/panCardDetailSaveBtn"
+                    style="@style/BlackBackgroundRegularButtonTheme"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:stateListAnimator="@null"
+                    android:text="@string/lbl_save"
+                    android:textAllCaps="false" />
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>
