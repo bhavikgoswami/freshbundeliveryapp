@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">NepZep-Delivery</string>
+    <string name="app_name">Broovis-Delivery</string>
     <string name="lbl_join_us">Join us / Sign in</string>
     <string name="lbl_desc_joinus">Enter to continue and explore within</string>
     <string name="lbl_mobile">Mobile Number</string>
@@ -79,9 +79,9 @@
     <string name="lbl_micr_code">Micr Code</string>
     <string name="cheque_photo_or_bank_statement">Cheque photo or Bank Statement</string>
     <string name="upload_checque_desc">Upload your account cancel cheque or blank cheque or Bank statement photo for account number confirmation</string>
-    <string name="upload_bank_detail_checkbox">Accept that all the information you attached here is true and are of the vehicle that are using for the NEPZEP delivery</string>
+    <string name="upload_bank_detail_checkbox">Accept that all the information you attached here is true and are of the vehicle that are using for the BROOVIS delivery</string>
     <string name="lbl_document">Document</string>
-    <string name="document_upload_desc">Accept that all the information you attached here is true and are of the vehicle that are using for the NEPZEP delivery</string>
+    <string name="document_upload_desc">Accept that all the information you attached here is true and are of the vehicle that are using for the BROOVIS delivery</string>
     <string name="lbl_rc_book">RC Book</string>
     <string name="rc_book_desc">Upload your Vehicle RC Book in jpg or pdf format \nMaximum file size is 2mb</string>
     <string name="lbl_pancard">PanCard</string>
@@ -226,7 +226,7 @@
     <string name="msg_need_some_helps">Need Some helps?</string>
     <string name="msg_support">Get lost? Don\'t know how to use? \n Feel free to get touch with us.</string>
     <string name="lbl_contact_us">Contact Us</string>
-    <string name="lbl_support_nepzep">contact@nepzep.com</string>
+    <string name="lbl_support_broovis">contact@broovis.com</string>
     <string name="lbl_frequently_asked_questions">Frequently Asked Questions</string>
     <string name="lbl_support">Support</string>
     <string name="lbl_faqs">FAQs</string>

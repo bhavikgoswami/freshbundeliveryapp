@@ -1,5 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable-hdpi/shape_border_gray_rounded_corner_no_padding.xml" value="0.135" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable-v24/ic_gender_female_selected.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable-v24/ic_gender_male_selected.xml" value="0.1045" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable-xhdpi/ic_home_logo.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/background_alpha_dark.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/background_circular_green.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/background_circular_yellow.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_aadhar.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_add_img.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_arrow_drop_down.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_back.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_baseline_arrow_back_36.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_baseline_expand_less_36.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_baseline_flip_camera_36.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_calceled_orders.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_call.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_check_box.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_checkmark_circle.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_close.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_current_location.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_delivered.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_document.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_group_support.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_joinus.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_logo.xml" value="0.1" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_new_deliveries.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_new_subscribers.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_not_delivered.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_notification.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_notifications.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_pending.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_profile.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_radio_selected.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_right_arrow.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_search_box.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_thumbnail.xml" value="0.195" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_under_review.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_upload.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_use_current_location.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_vacation.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/progress_drawable.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/progress_truck.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/selector_bottom_menu.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/shape_black_rounded_corner.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/shape_gray_search_rounded_corner.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/shape_yellow_transparant_rounded_corner.xml" value="0.1045" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/layout/activity_aadhar_card_upload.xml" value="0.16666666666666666" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/layout/activity_document_upload.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/layout/activity_mobile_number.xml" value="0.1" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/layout/activity_profile.xml" value="0.1" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/layout/activity_splash.xml" value="0.1" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/layout/activity_under_review_profile.xml" value="0.20416666666666666" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>

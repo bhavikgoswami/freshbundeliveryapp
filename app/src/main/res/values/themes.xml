@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="NepZepTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="BroovisTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/color_theme</item>
         <item name="colorPrimaryVariant">@color/color_theme</item>
@@ -358,14 +358,14 @@
         <item name="android:textSize">@dimen/_8ssp</item>
     </style>
 
-    <style name="NepZepTheme.NoActionBar">
+    <style name="BroovisTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="NepZepTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="BroovisTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="NepZepTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="BroovisTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <!--    Other widget themes-->
     <style name="TabLayout" parent="Widget.Design.TabLayout">

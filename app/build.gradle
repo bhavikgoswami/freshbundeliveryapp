@@ -9,7 +9,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
- //   id 'com.google.gms.google-services'
+    id 'com.google.gms.google-services'
     id 'com.google.firebase.crashlytics'
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
@@ -18,7 +18,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.witnovus.freshbundeliveryapp"
+        applicationId "com.greypixstudio.broovisdeliveryapp"
         minSdk 23
         targetSdk 31
         versionCode 1
@@ -154,7 +154,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-crashlytics-ktx'
     implementation 'com.google.firebase:firebase-messaging-ktx:23.0.6'
 
-    def koin_version= "3.2.0-beta-1"
+    def koin_version = "3.2.0-beta-1"
     // Koin Core features
     implementation "io.insert-koin:koin-core:$koin_version"
     // Koin Test features
@@ -181,7 +181,8 @@ dependencies {
     implementation "androidx.camera:camera-lifecycle:1.1.0-beta03"
     implementation "androidx.camera:camera-camera2:1.1.0-beta03"
 
-    implementation "io.github.rupinderjeet:kprogresshud:1.0.0" //https://github.com/rupinderjeet/KProgressHUD
+    implementation "io.github.rupinderjeet:kprogresshud:1.0.0"
+    //https://github.com/rupinderjeet/KProgressHUD
 
 
 }

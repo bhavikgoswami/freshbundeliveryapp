@@ -25,8 +25,8 @@
 
 # Paper DataBase Start
 # Keep data classes
--keep class com.witnovus.nepzepdeliveryapp.model.** { *; }
--keep class com.witnovus.nepzepdeliveryapp.utils.api.**{ *; }
+-keep class com.witnovus.broovisdeliveryapp.model.** { *; }
+-keep class com.witnovus.broovisdeliveryapp.utils.api.**{ *; }
 
 -keep class * implements java.io.Serializable { *; }
 
@@ -38,7 +38,7 @@
 -keep class com.google.gson.stream.** { *; }
 
 # Application classes that will be serialized/deserialized over Gson
--keep class  com.witnovus.nepzepdeliveryapp.model.** { <fields>; }
+-keep class  com.witnovus.broovisdeliveryapp.model.** { <fields>; }
 
 # Prevent proguard from stripping interface information from TypeAdapter, TypeAdapterFactory,
 # JsonSerializer, JsonDeserializer instances (so they can be used in @JsonAdapter)
