@@ -75,7 +75,7 @@ class ProfileActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_profile)
         init()
-      //  getFirebaseToken()
+        getFirebaseToken ()
         binding.saveButton.visibility = View.VISIBLE
         binding.updateBtn.visibility = View.GONE
 
@@ -148,7 +148,6 @@ class ProfileActivity : BaseActivity() {
         binding.genderMaleLirLayout.setOnClickListener { genderSelection(binding.genderMaleLirLayout) }
         binding.genderFemaleLirLayout.setOnClickListener { genderSelection(binding.genderFemaleLirLayout) }
 
-
         if (intent.hasExtra("register")) {
             isRegister = intent.getBooleanExtra(
                 "register", false
@@ -195,14 +194,14 @@ class ProfileActivity : BaseActivity() {
                     showToast(getString(R.string.mag_please_enter_valid_email_address))
                 } else if (!mobile.isPhoneValid()) {
                     showToast(getString(R.string.msg_please_enter_valid_mobile_number))
-                }else if (alternative_contact_no.isNotEmpty() && !Utils.verifyPhoneNumber(
+                } else if (alternative_contact_no.isNotEmpty() && !Utils.verifyPhoneNumber(
                         alternative_contact_no
                     )
                 ) {
                     showToast(getString(R.string.msg_please_enter_valid_mobile_number))
                 } else if (birthDate.isEmpty()) {
                     showToast(getString(R.string.msg_please_select_birthdate))
-                }  else {
+                } else {
                     if (isRegister) {
                         setSignupObserver()
                         if (Utils.checkConnection(this@ProfileActivity)) {

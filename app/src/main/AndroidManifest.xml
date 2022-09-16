@@ -43,7 +43,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDtlccC-5F1ydayE1nr0FngKh4aJ6bkMNk" />
+            android:value="AIzaSyA8FJNpD9BEz5BpzTM_wdb7dFYhE2xzprI" />
 
         <activity
             android:name=".ui.activity.UseCurrentAddressActivity"

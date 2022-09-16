@@ -83,9 +83,9 @@ class Constants {
         const val SUPPORT_EMAIL = "contact@broovis.com"
         const val PHONE_NUMBER = "+919727555615"
 
-        const val API_KEY = "AIzaSyDtlccC-5F1ydayE1nr0FngKh4aJ6bkMNk"
-        const val PROJECT_ID = "broovisdeliveryapp"
-        const val APPLICATION_ID ="1:780865504032:android:0b62986561b97e0fdf8d45"
+        const val API_KEY = "AIzaSyA8FJNpD9BEz5BpzTM_wdb7dFYhE2xzprI"
+        const val PROJECT_ID = "broovis-44102"
+        const val APPLICATION_ID ="1:498352837148:android:0f2f0291d28089d4a5c5d9"
 
         const val CURRENT_ADDRESS_DATA = "currentAddressData"
         const val PERMANENT_ADDRESS_DATA = "permanentAddressData"

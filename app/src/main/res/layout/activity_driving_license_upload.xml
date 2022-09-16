@@ -18,13 +18,11 @@
             layout="@layout/toolbar_layout" />
 
 
-
-
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="@dimen/_48sdp"
-            android:layout_below="@+id/documentUploadToolbar">
+            android:layout_below="@+id/documentUploadToolbar"
+            android:layout_marginBottom="@dimen/_48sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -69,17 +67,17 @@
                         android:layout_weight="40"
                         android:scaleType="centerCrop"
                         android:src="@drawable/driving_lincense_front"
-                        app:cardCornerRadius="@dimen/_4sdp"/>
+                        app:cardCornerRadius="@dimen/_4sdp" />
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/drivingLincenseBackImgView"
                         android:layout_width="@dimen/_132sdp"
                         android:layout_height="@dimen/_100sdp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/driving_lincense_back"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:layout_weight="40"
-                        app:cardCornerRadius="@dimen/_4sdp"/>
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/driving_lincense_back"
+                        app:cardCornerRadius="@dimen/_4sdp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -91,36 +89,26 @@
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/licenceFrontUploadBtn"
-                        style="@style/GrayBackgroundRegularButtonTheme"
+                        style="@style/BlackBackgroundRegularButtonTheme"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_30sdp"
+                        android:layout_margin="@dimen/_4sdp"
                         android:layout_weight="50"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginEnd="@dimen/_10sdp"
-                        android:layout_marginVertical="@dimen/_4sdp"
-                        android:background="@drawable/shape_gray_rounded_btn_corner"
-                        android:paddingLeft="@dimen/_24sdp"
-                        android:paddingTop="@dimen/_2sdp"
-                        android:paddingEnd="@dimen/_6sdp"
-                        android:paddingBottom="@dimen/_2sdp"
+                        android:background="@drawable/shape_black_rounded_corner"
                         android:text="@string/lbl_front_side"
+                        android:textAlignment="center"
                         android:textAllCaps="false" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/licenceBackUploadBtn"
-                        style="@style/GrayBackgroundRegularButtonTheme"
+                        style="@style/BlackBackgroundRegularButtonTheme"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_30sdp"
+                        android:layout_margin="@dimen/_4sdp"
                         android:layout_weight="50"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginEnd="@dimen/_10sdp"
-                        android:layout_marginVertical="@dimen/_4sdp"
-                        android:background="@drawable/shape_gray_rounded_btn_corner"
-                        android:paddingLeft="@dimen/_24sdp"
-                        android:paddingTop="@dimen/_2sdp"
-                        android:paddingEnd="@dimen/_6sdp"
-                        android:paddingBottom="@dimen/_2sdp"
+                        android:background="@drawable/shape_black_rounded_corner"
                         android:text="@string/lbl_back_side"
+                        android:textAlignment="center"
                         android:textAllCaps="false" />
 
                 </LinearLayout>
@@ -129,8 +117,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_16sdp"
-                    android:orientation="vertical"
-                   >
+                    android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         style="@style/EightTextHintTheme"
@@ -148,7 +135,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:minHeight="@dimen/_48sdp"
-                            android:paddingLeft="@dimen/_10sdp"/>
+                            android:paddingLeft="@dimen/_10sdp" />
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -162,17 +149,17 @@
                     android:layout_marginTop="@dimen/_16sdp"
                     android:hint="@string/lbl_licence_user_name"
                     android:textColorHint="@color/color_disable_gray"
-                    app:boxStrokeWidth="0.75dp"
                     app:boxStrokeColor="@color/black"
+                    app:boxStrokeWidth="0.75dp"
                     app:boxStrokeWidthFocused="1dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/userNameEdtView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
                         android:imeOptions="actionNext"
                         android:inputType="text"
-                        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:singleLine="true"
@@ -187,8 +174,8 @@
                     android:layout_marginTop="@dimen/_16sdp"
                     android:hint="@string/lbl_licence_number"
                     android:textColorHint="@color/color_disable_gray"
-                    app:boxStrokeWidth="0.75dp"
                     app:boxStrokeColor="@color/black"
+                    app:boxStrokeWidth="0.75dp"
                     app:boxStrokeWidthFocused="1dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -211,21 +198,21 @@
                     android:layout_marginTop="@dimen/_16sdp"
                     android:hint="@string/lbl_licence_regi_date"
                     android:textColorHint="@color/color_disable_gray"
-                    app:boxStrokeWidth="0.75dp"
                     app:boxStrokeColor="@color/black"
+                    app:boxStrokeWidth="0.75dp"
                     app:boxStrokeWidthFocused="1dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/registrationDateEdtView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
                         android:cursorVisible="false"
                         android:focusable="false"
                         android:focusableInTouchMode="false"
                         android:inputType="text"
                         android:maxLines="1"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
                         android:singleLine="true"
                         android:textColor="@color/black" />
 
@@ -239,26 +226,25 @@
                     android:layout_marginTop="@dimen/_16sdp"
                     android:hint="@string/lbl_licence_ex_date"
                     android:textColorHint="@color/color_disable_gray"
-                    app:boxStrokeWidth="0.75dp"
                     app:boxStrokeColor="@color/black"
+                    app:boxStrokeWidth="0.75dp"
                     app:boxStrokeWidthFocused="1dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/expiryDateEdtView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
                         android:cursorVisible="false"
                         android:focusable="false"
                         android:focusableInTouchMode="false"
                         android:inputType="text"
                         android:maxLines="1"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
                         android:singleLine="true"
                         android:textColor="@color/black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
-
 
 
             </LinearLayout>
@@ -267,31 +253,31 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/licenseDetailSaveBtn"
             style="@style/BlackBackgroundRegularButtonTheme"
-            android:visibility="gone"
-            android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:layout_marginStart="@dimen/_16sdp"
             android:layout_marginTop="@dimen/_16sdp"
             android:layout_marginEnd="@dimen/_16sdp"
             android:layout_marginBottom="@dimen/_8sdp"
             android:stateListAnimator="@null"
             android:text="@string/lbl_save"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:visibility="gone" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/licenseDetailUpdateBtn"
             style="@style/BlackBackgroundRegularButtonTheme"
-            android:visibility="gone"
-            android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:layout_marginStart="@dimen/_16sdp"
             android:layout_marginTop="@dimen/_16sdp"
             android:layout_marginEnd="@dimen/_16sdp"
             android:layout_marginBottom="@dimen/_8sdp"
             android:stateListAnimator="@null"
             android:text="@string/lbl_update"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:visibility="gone" />
     </RelativeLayout>
 </layout>

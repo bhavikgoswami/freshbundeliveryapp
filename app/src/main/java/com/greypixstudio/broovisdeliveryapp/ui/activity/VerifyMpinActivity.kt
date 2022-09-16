@@ -88,7 +88,7 @@ class VerifyMpinActivity : BaseActivity() {
                         }
                     })
             }
-        }else{
+        } else {
             Toast.makeText(
                 this@VerifyMpinActivity,
                 getString(R.string.msg_internet_connection_not_available),
@@ -100,8 +100,7 @@ class VerifyMpinActivity : BaseActivity() {
     fun init() {
         binding.mPinView.setAnimationEnable(true)
         binding.mPinView.itemCount = 4
-        binding.mPinView.cursorColor =
-            ResourcesCompat.getColor(resources, R.color.black, theme)
+        binding.mPinView.cursorColor = ResourcesCompat.getColor(resources, R.color.black, theme)
         binding.mPinView.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
@@ -116,9 +115,7 @@ class VerifyMpinActivity : BaseActivity() {
 
         binding.verifyMpinBtn.setOnClickListener {
             if (binding.mPinView.text!!.isNotEmpty() && mPinView.text.toString().length == 4) {
-
                 verifyMpin(mPinView.text!!.toString())
-
             }
         }
 
@@ -133,10 +130,7 @@ class VerifyMpinActivity : BaseActivity() {
 
     private fun verifyMpin(mpin: String) {
 
-
         val jsonObject = JSONObject()
-
-
 
         if (Paper.book().contains(Constants.USER_DETAILS)) {
             val userDetail = Paper.book().read<User>(Constants.USER_DETAILS)
@@ -146,7 +140,7 @@ class VerifyMpinActivity : BaseActivity() {
         jsonObject.put(Constants.LBL_MPIN, mpin)
         if (Utils.checkConnection(this@VerifyMpinActivity)) {
             userViewModel.verifyMpinResponse(jsonObject.toString())
-        }else {
+        } else {
             Toast.makeText(
                 this@VerifyMpinActivity,
                 getString(R.string.msg_internet_connection_not_available),
@@ -155,7 +149,8 @@ class VerifyMpinActivity : BaseActivity() {
         }
 
         if (!userViewModel.verifyMpinData.hasObservers()) {
-            userViewModel.verifyMpinData.observe(this@VerifyMpinActivity
+            userViewModel.verifyMpinData.observe(
+                this@VerifyMpinActivity
             ) { verifyMpinData ->
                 verifyMpinData.let {
                     if (verifyMpinData.success) {
@@ -182,14 +177,14 @@ class VerifyMpinActivity : BaseActivity() {
                                         this@VerifyMpinActivity,
                                         DocumentUploadActivity::class.java
                                     )
-                                mIntent.putExtra("type",1)
-                            }else if (verifyMpinData.results.user.verifiedStatus.equals("DocumentUploaded")) {
+                                mIntent.putExtra("type", 1)
+                            } else if (verifyMpinData.results.user.verifiedStatus.equals("DocumentUploaded")) {
                                 mIntent =
                                     Intent(
                                         this@VerifyMpinActivity,
                                         EnableLocationActivity::class.java
                                     )
-                            }  else if (verifyMpinData.results.user.verifiedStatus.equals("DocumentAdded")) {
+                            } else if (verifyMpinData.results.user.verifiedStatus.equals("DocumentAdded")) {
                                 mIntent =
                                     Intent(
                                         this@VerifyMpinActivity,
@@ -231,13 +226,8 @@ class VerifyMpinActivity : BaseActivity() {
                             overridePendingTransition(0, 0)
                             finish()
                         }
-
                     }
-
-
                 }
-
-
             }
         }
 

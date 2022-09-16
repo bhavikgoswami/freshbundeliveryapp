@@ -30,15 +30,6 @@ class SplashActivity : BaseActivity() {
             .repeat(0)
             .playOn(binding.logoImgView)
 
-        YoYo.with(Techniques.Wave)
-            .duration(1500)
-            .repeat(0)
-            .playOn(binding.textLogoImgView)
-
-        YoYo.with(Techniques.SlideInUp)
-            .duration(1000)
-            .repeat(0)
-            .playOn(binding.textLogoImgView)
 
      Handler(Looper.getMainLooper()).postDelayed({
 

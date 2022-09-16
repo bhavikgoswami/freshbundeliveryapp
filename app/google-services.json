@@ -1,41 +1,70 @@
 {
   "project_info": {
-    "project_number": "780865504032",
-    "project_id": "broovisdeliveryapp",
-    "storage_bucket": "broovisdeliveryapp.appspot.com"
+    "project_number": "498352837148",
+    "project_id": "broovis-44102",
+    "storage_bucket": "broovis-44102.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:780865504032:android:0b62986561b97e0fdf8d45",
+        "mobilesdk_app_id": "1:498352837148:android:7e7b67337c94e1ada5c5d9",
         "android_client_info": {
-          "package_name": "com.greypixstudio.broovisdeliveryapp"
+          "package_name": "com.greypixstudio.broovis"
         }
       },
       "oauth_client": [
         {
-          "client_id": "780865504032-ej87l99ab33d6jvesdq6nnou8v4c0m1v.apps.googleusercontent.com",
+          "client_id": "498352837148-rn0esl5v0e3a71933659revcnfkptnkp.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.greypixstudio.broovisdeliveryapp",
+            "package_name": "com.greypixstudio.broovis",
             "certificate_hash": "005e2dd0093beeaddd5eba8f11360a794dda2a66"
           }
         },
         {
-          "client_id": "780865504032-ottvla6jmisr2kajecr1n41943j1742i.apps.googleusercontent.com",
+          "client_id": "498352837148-779v73f5fdn8eskiccbdc3vvr5gg1c4i.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDtlccC-5F1ydayE1nr0FngKh4aJ6bkMNk"
+          "current_key": "AIzaSyA8FJNpD9BEz5BpzTM_wdb7dFYhE2xzprI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "780865504032-ottvla6jmisr2kajecr1n41943j1742i.apps.googleusercontent.com",
+              "client_id": "498352837148-779v73f5fdn8eskiccbdc3vvr5gg1c4i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:498352837148:android:0f2f0291d28089d4a5c5d9",
+        "android_client_info": {
+          "package_name": "com.greypixstudio.broovisdeliveryapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "498352837148-779v73f5fdn8eskiccbdc3vvr5gg1c4i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8FJNpD9BEz5BpzTM_wdb7dFYhE2xzprI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "498352837148-779v73f5fdn8eskiccbdc3vvr5gg1c4i.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
