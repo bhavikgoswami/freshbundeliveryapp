@@ -170,8 +170,6 @@
     <string name="msg_upload_aadhaarcard_update">Aadhaarcard Successfully Updated</string>
 
 
-
-
     <string name="lbl_Please_flat_no">Please enter flat no or building name.</string>
     <string name="lbl_Please_area">Please enter locality or area or street.</string>
     <string name="lbl_Please_landmark">Please enter landmark.</string>
@@ -262,5 +260,8 @@
     <string name="msg_logout_successfully">Successfully Logout</string>
     <string name="lbl_latitudes">Latitudes*</string>
     <string name="lbl_longitudes">Longitudes*</string>
+    <string name="lbl_amount_to_collect">Amount to collect</string>
+    <string name="lbl_cash_collected">Cash Collected</string>
+    <string name="lbl_recieved_by_upi">Recieved by UPI</string>
 
 </resources>

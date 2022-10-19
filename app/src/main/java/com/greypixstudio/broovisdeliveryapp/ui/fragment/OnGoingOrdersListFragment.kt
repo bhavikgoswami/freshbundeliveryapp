@@ -26,7 +26,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
 
 
-class OnGoingOrdersListFragment : BaseFragment(), OnGoingOrderListAdapter.OnItemClickListener{
+class OnGoingOrdersListFragment : BaseFragment(), OnGoingOrderListAdapter.OnItemClickListener {
 
 
     private lateinit var binding: OnGoingOrdersListFragmentBinding
@@ -34,14 +34,19 @@ class OnGoingOrdersListFragment : BaseFragment(), OnGoingOrderListAdapter.OnItem
     private val upcomingOrderList = ArrayList<Order>()
     private val orderDetailViewModel by viewModel<OrderDetailViewModel>()
 
-    private var completedDeliveryCount:Int = 0
-    private var totalDeliveryCount:Int = 0
+    private var completedDeliveryCount: Int = 0
+    private var totalDeliveryCount: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_on_going_orders_list, container, false)
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_on_going_orders_list,
+            container,
+            false
+        )
         return binding.root
 
     }
@@ -62,7 +67,7 @@ class OnGoingOrdersListFragment : BaseFragment(), OnGoingOrderListAdapter.OnItem
                     if (getOrderListDetailData.success) {
                         Utils.hideProgress()
                         upcomingOrderList.clear()
-                        if(getOrderListDetailData.results.orders.size !=0) {
+                        if (getOrderListDetailData.results.orders.size != 0) {
                             upcomingOrderList.addAll(getOrderListDetailData.results.orders)
                             upcomingOrderList.reverse()
 
@@ -74,17 +79,17 @@ class OnGoingOrdersListFragment : BaseFragment(), OnGoingOrderListAdapter.OnItem
                             binding.orderListRecyclerView.adapter = mOnGoingOrderListAdapter
                             binding.orderListRecyclerView.visibility = View.VISIBLE
                             binding.emptyCartImgView.visibility = View.GONE
-                        }else{
+                        } else {
                             binding.orderListRecyclerView.visibility = View.GONE
                             binding.emptyCartImgView.visibility = View.VISIBLE
                         }
 
-                        completedDeliveryCount =  getOrderListDetailData.results.orderTotals.deliveredOrders
+                        completedDeliveryCount =
+                            getOrderListDetailData.results.orderTotals.deliveredOrders
                         totalDeliveryCount = getOrderListDetailData.results.orderTotals.totalOrders
 
 
-
-                    }else{
+                    } else {
                         binding.orderListRecyclerView.visibility = View.GONE
                         binding.emptyCartImgView.visibility = View.VISIBLE
                     }
@@ -93,7 +98,7 @@ class OnGoingOrdersListFragment : BaseFragment(), OnGoingOrderListAdapter.OnItem
             /**
              * observe for failed response from API
              */
-            if (!orderDetailViewModel.loadingState.hasObservers()){
+            if (!orderDetailViewModel.loadingState.hasObservers()) {
                 orderDetailViewModel.loadingState.observe(requireActivity()) { loadingState ->
                     when (loadingState.status) {
                         LoadingState.Status.RUNNING -> {
@@ -128,7 +133,7 @@ class OnGoingOrdersListFragment : BaseFragment(), OnGoingOrderListAdapter.OnItem
                     }
                 }
             }
-        }else{
+        } else {
             Toast.makeText(
                 requireActivity(),
                 getString(R.string.msg_internet_connection_not_available),
@@ -138,29 +143,34 @@ class OnGoingOrdersListFragment : BaseFragment(), OnGoingOrderListAdapter.OnItem
     }
 
 
-
-
     override fun onDeliveredClick(onGoingOrderList: Order, position: Int) {
 
-        val builder = AlertDialog.Builder(requireContext())
-        builder.setTitle(R.string.sub_delivered_order)
-        builder.setMessage(R.string.delivered_order_desc)
-        builder.setPositiveButton("Conform") { dialogInterface, _ ->
-            dialogInterface.dismiss()
-            orderDeliveredObserver(onGoingOrderList.type , onGoingOrderList.oRDERNUMBER)
+        val bundle = Bundle()
+        val paymentQRDialogFragment = PaymentQRDialogFragment()
+        paymentQRDialogFragment.show(
+            requireActivity().supportFragmentManager,
+            "invalidUserBottomSheetFragment"
+        )
 
-        }
-        builder.setNegativeButton("Cancel") { dialogInterface, _ ->
-            dialogInterface.dismiss()
-        }
-        val alertDialog: AlertDialog = builder.create()
-        alertDialog.setCancelable(false)
-        alertDialog.show()
+        /*  val builder = AlertDialog.Builder(requireContext())
+          builder.setTitle(R.string.sub_delivered_order)
+          builder.setMessage(R.string.delivered_order_desc)
+          builder.setPositiveButton(getString(R.string.lbl_confirm)) { dialogInterface, _ ->
+              dialogInterface.dismiss()
+              orderDeliveredObserver(onGoingOrderList.type , onGoingOrderList.oRDERNUMBER)
+
+          }
+          builder.setNegativeButton(getString(R.string.lbl_cancel)) { dialogInterface, _ ->
+              dialogInterface.dismiss()
+          }
+          val alertDialog: AlertDialog = builder.create()
+          alertDialog.setCancelable(false)
+          alertDialog.show()*/
 
 
     }
 
-    private fun orderDeliveredObserver(orderType:String,orderNumber:String) {
+    private fun orderDeliveredObserver(orderType: String, orderNumber: String) {
 
         val jsonObject = JSONObject()
 
@@ -188,7 +198,7 @@ class OnGoingOrdersListFragment : BaseFragment(), OnGoingOrderListAdapter.OnItem
         /**
          * observe for failed response from API
          */
-        if (!orderDetailViewModel.loadingState.hasObservers()){
+        if (!orderDetailViewModel.loadingState.hasObservers()) {
             orderDetailViewModel.loadingState.observe(requireActivity()) { loadingState ->
                 when (loadingState.status) {
                     LoadingState.Status.RUNNING -> {
@@ -235,16 +245,16 @@ class OnGoingOrdersListFragment : BaseFragment(), OnGoingOrderListAdapter.OnItem
 
     override fun onNotDeliveredOrderClick(onGoingOrderList: Order, position: Int) {
         val mIntent = Intent(requireActivity(), NotDeliveredReasonActivity::class.java)
-        mIntent.putExtra("type",onGoingOrderList.type)
-        mIntent.putExtra("order_number",onGoingOrderList.oRDERNUMBER)
+        mIntent.putExtra("type", onGoingOrderList.type)
+        mIntent.putExtra("order_number", onGoingOrderList.oRDERNUMBER)
         startActivity(mIntent)
 
     }
 
-   /* override fun onNotDeliveredClick(onGoingOrderList: Order, position: Int) {
+    /* override fun onNotDeliveredClick(onGoingOrderList: Order, position: Int) {
 
-    }
-*/
+     }
+ */
     override fun onCallImageClick(onGoingOrderList: Order, position: Int) {
         val dialIntent = Intent(Intent.ACTION_DIAL)
         dialIntent.data = Uri.parse("tel:" + onGoingOrderList.customerMobile)

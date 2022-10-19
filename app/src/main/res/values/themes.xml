@@ -141,6 +141,13 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="ThirtyTwoBlackTextTheme">
+        <item name="android:textColor">?attr/black_color</item>
+        <item name="fontFamily">@font/opensansbold</item>
+        <item name="android:textSize">@dimen/_48ssp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="TwelveTextTheme">
         <item name="android:textColor">?attr/black_color</item>
         <item name="fontFamily">@font/opensansregular</item>
