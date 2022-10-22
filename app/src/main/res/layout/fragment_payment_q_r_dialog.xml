@@ -30,6 +30,7 @@
                 android:textAlignment="center" />
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/amountTextView"
                 style="@style/ThirtyTwoBlackTextTheme"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

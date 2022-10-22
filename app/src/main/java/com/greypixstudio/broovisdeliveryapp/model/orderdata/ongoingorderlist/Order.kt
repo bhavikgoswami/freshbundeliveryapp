@@ -33,7 +33,7 @@ data class Order(
     @SerializedName("longitudes")
     val longitudes: String,
     @SerializedName("ORDER_NUMBER")
-    val oRDERNUMBER: String,
+    val orderNumber: String,
     @SerializedName("order_id")
     val orderId: Int,
     @SerializedName("order_status")
@@ -57,5 +57,7 @@ data class Order(
     @SerializedName("type")
     val type: String,
     @SerializedName("wing")
-    val wing: String
+    val wing: String,
+    @SerializedName("cash_payment")
+    val cashPayment: String
 )

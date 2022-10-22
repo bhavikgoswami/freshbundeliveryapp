@@ -24,5 +24,10 @@ class JsonConstants {
         const val statePermanentAddress = "permanent_state"
         const val permanentZipCode ="permanent_zipcode"
 
+        const val  type = "type"
+        const val  orderNumber = "order_number"
+        const val  paymentType = "payment_type"
+        const val  paymentId = "payment_id"
+
     }
 }

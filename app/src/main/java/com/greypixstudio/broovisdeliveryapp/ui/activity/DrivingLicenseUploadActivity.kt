@@ -66,7 +66,7 @@ class DrivingLicenseUploadActivity : BaseActivity() {
     private val PERMISSION_CHECK_CODE_FOR_STORAGE = 1
     private var photoTypeRequest: Int = 1
 
-    private var type : Int = 1
+    private var type: Int = 1
     private var getDrivingLicenseDetail = Constants.DOCUMENT_TYPE_LICENCE
 
     private var selectedLicenceType = Constants.BLANK_STRING
@@ -81,7 +81,6 @@ class DrivingLicenseUploadActivity : BaseActivity() {
 
         binding.licenseDetailUpdateBtn.visibility = View.GONE
         binding.licenseDetailSaveBtn.visibility = View.VISIBLE
-
 
 
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, licenseTypeArray)
@@ -166,7 +165,7 @@ class DrivingLicenseUploadActivity : BaseActivity() {
                 }*/
             }
 
-             /* Add or remove space EditText settings*/
+            /* Add or remove space EditText settings*/
 
             private fun setContent(sb: StringBuffer) {
                 editText.setText(sb.toString())
@@ -260,7 +259,9 @@ class DrivingLicenseUploadActivity : BaseActivity() {
             val licenceRegisterDate = binding.registrationDateEdtView.text.toString().trim()
             val licenceExpiryDate = binding.expiryDateEdtView.text.toString().trim()
             val licenseType = selectedLicenceType
-            if (deliveryUsername.isEmpty()) {
+            if (licenseFrontSideFile == null || licenseBackSideFile == null) {
+                showToast(getString(R.string.lbl_please_upload_licence_image))
+            } else if (deliveryUsername.isEmpty()) {
                 showToast(getString(R.string.lbl_Please_enter_username))
             } else if (number.isEmpty()) {
                 showToast(getString(R.string.lbl_Please_enter_licenceNumber))
@@ -275,7 +276,7 @@ class DrivingLicenseUploadActivity : BaseActivity() {
             } else {
                 updateLincenceDocumnetObserver()
                 if (Utils.checkConnection(this@DrivingLicenseUploadActivity)) {
-                    if (licenseFrontSideFile == null && licenseBackSideFile == null){
+                    if (licenseFrontSideFile == null && licenseBackSideFile == null) {
                         uploadDocumentViewModel.updateLicenseDetailResponse(
                             documentType.toRequestBody("text/plain;charset=utf-8".toMediaTypeOrNull()),
                             licenseType.toRequestBody("text/plain;charset=utf-8".toMediaTypeOrNull()),
@@ -288,7 +289,7 @@ class DrivingLicenseUploadActivity : BaseActivity() {
                             null,
                             null
                         )
-                    }else{
+                    } else {
                         val frontSiderequestBody =
                             licenseFrontSideFile?.asRequestBody("multipart/form-data".toMediaTypeOrNull())
                         frontSiderequestBody?.let {
@@ -355,6 +356,7 @@ class DrivingLicenseUploadActivity : BaseActivity() {
             getDrivingLicenseDetail()
         }
     }
+
     private fun updateLincenceDocumnetObserver() {
         if (!uploadDocumentViewModel.updateLicenseDetailData.hasObservers()) {
             uploadDocumentViewModel.updateLicenseDetailData.observe(
@@ -456,7 +458,7 @@ class DrivingLicenseUploadActivity : BaseActivity() {
     private fun getDrivingLicenseDetail() {
         val jsonObject = JSONObject()
 
-        jsonObject.put(Constants.DOCUMENT_TYPE , getDrivingLicenseDetail )
+        jsonObject.put(Constants.DOCUMENT_TYPE, getDrivingLicenseDetail)
 
         if (Utils.checkConnection(this@DrivingLicenseUploadActivity)) {
             uploadDocumentViewModel.getLicenceDetailResponse(jsonObject.toString())
@@ -475,8 +477,8 @@ class DrivingLicenseUploadActivity : BaseActivity() {
                     if (getLicenseDetailData.success) {
                         binding.licenseDetailSaveBtn.visibility = View.GONE
                         binding.licenseDetailUpdateBtn.visibility = View.VISIBLE
-                        getLicenseDetailData.results.records.let {
-                                records ->   getLicenseDetailData.results.records
+                        getLicenseDetailData.results.records.let { records ->
+                            getLicenseDetailData.results.records
                             setLicenseDetail(records)
                         }
 
@@ -513,6 +515,7 @@ class DrivingLicenseUploadActivity : BaseActivity() {
         }
 
     }
+
     private fun setLicenseDetail(records: Records) {
 
         if (records.frontSide.isNotEmpty()) {
@@ -532,24 +535,24 @@ class DrivingLicenseUploadActivity : BaseActivity() {
 
         val licenceType = records.licenceType
 
-        if (licenceType.equals("Two Wheeler")){
+        if (licenceType.equals("Two Wheeler")) {
             binding.licenseTypeSpinner.setSelection(0)
-        }else if (licenceType.equals("Light Weight Motor")){
+        } else if (licenceType.equals("Light Weight Motor")) {
             binding.licenseTypeSpinner.setSelection(1)
-        }else{
+        } else {
             binding.licenseTypeSpinner.setSelection(2)
         }
 
-        if (records.name.isNotEmpty()){
+        if (records.name.isNotEmpty()) {
             binding.userNameEdtView.setText(records.name)
         }
-        if (records.number.isNotEmpty()){
+        if (records.number.isNotEmpty()) {
             binding.licenceNumberEdtView.setText(records.number)
         }
-        if (records.licenceRegisterDate.isNotEmpty()){
+        if (records.licenceRegisterDate.isNotEmpty()) {
             binding.registrationDateEdtView.setText(records.licenceRegisterDate)
         }
-        if (records.licenceExpiryDate.isNotEmpty()){
+        if (records.licenceExpiryDate.isNotEmpty()) {
             binding.expiryDateEdtView.setText(records.licenceExpiryDate)
         }
     }
@@ -597,7 +600,8 @@ class DrivingLicenseUploadActivity : BaseActivity() {
         if (requestCode == PERMISSION_CHECK_CODE_FOR_STORAGE && grantResults.isNotEmpty()) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED
                 && grantResults[1] == PackageManager.PERMISSION_GRANTED
-                && grantResults[2] == PackageManager.PERMISSION_GRANTED) {
+                && grantResults[2] == PackageManager.PERMISSION_GRANTED
+            ) {
                 openGallery()
             }
         }
@@ -648,8 +652,13 @@ class DrivingLicenseUploadActivity : BaseActivity() {
         }
         super.onActivityResult(requestCode, resultCode, data)
     }
+
     @Throws(IOException::class)
-    private fun rotateImageIfRequired(context: Context, img: Bitmap, selectedImage: Uri): Bitmap? {
+    private fun rotateImageIfRequired(
+        context: Context,
+        img: Bitmap,
+        selectedImage: Uri
+    ): Bitmap? {
         val input: InputStream = context.contentResolver.openInputStream(selectedImage)!!
         val ei: ExifInterface =
             if (Build.VERSION.SDK_INT > 23) ExifInterface(input) else selectedImage.path?.let {
@@ -670,7 +679,12 @@ class DrivingLicenseUploadActivity : BaseActivity() {
         val bytes = ByteArrayOutputStream()
         inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
         val path =
-            MediaStore.Images.Media.insertImage(inContext.contentResolver, inImage, "Title", null)
+            MediaStore.Images.Media.insertImage(
+                inContext.contentResolver,
+                inImage,
+                "Title",
+                null
+            )
         return Uri.parse(path)
     }
 

@@ -262,6 +262,11 @@
     <string name="lbl_longitudes">Longitudes*</string>
     <string name="lbl_amount_to_collect">Amount to collect</string>
     <string name="lbl_cash_collected">Cash Collected</string>
-    <string name="lbl_recieved_by_upi">Recieved by UPI</string>
+    <string name="lbl_recieved_by_upi">Received by UPI</string>
+    <string name="lbl_recieve_cash">Receive Cash Payment</string>
+    <string name="lbl_recieve_by_upi">Receive Payemnt by UPI</string>
+    <string name="lbl_rs">\u20B9</string>
+    <string name="lbl_please_upload_licence_image">Please Upload Adhar Image</string>
+    <string name="lbl_please_upload_adhar_card_image">Please upload Adhar card Image</string>
 
 </resources>

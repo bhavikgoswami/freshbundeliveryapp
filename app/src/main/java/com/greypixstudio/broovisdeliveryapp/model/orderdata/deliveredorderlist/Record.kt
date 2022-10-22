@@ -57,5 +57,7 @@ data class Record(
     @SerializedName("type")
     val type: String,
     @SerializedName("wing")
-    val wing: String
+    val wing: String,
+    @SerializedName("cash_payment")
+    val cashPayment: String?
 )

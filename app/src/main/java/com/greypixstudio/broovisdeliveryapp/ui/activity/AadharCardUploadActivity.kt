@@ -123,8 +123,9 @@ class AadharCardUploadActivity : BaseActivity() {
             val aadhaarCardUserName =
                 binding.aadhaarCardUserNameEdtView.text.toString().trim()
             val aadhaarCardNumber = binding.aadhaarCardNumberEdtView.text.toString().trim()
-
-            if (aadhaarCardUserName.isEmpty()) {
+            if (aadhaarCardFrontSideFile == null || aadhaarCardBackSideFile == null) {
+                showToast(getString(R.string.lbl_please_upload_adhar_card_image))
+            }else if (aadhaarCardUserName.isEmpty()) {
                 showToast(getString(R.string.lbl_Please_enter_aadhaarcardusername))
             } else if (aadhaarCardNumber.isEmpty()) {
                 showToast(getString(R.string.lbl_Please_enter_aadhaarcardNumber))

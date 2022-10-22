@@ -52,6 +52,7 @@ class Constants {
 
         val LBL_MPIN="mpin"
         val BLANK_STRING=""
+        val BLANK_SPACE =""
         const val DOCUMENT_TYPE = "document_type"
         const val DOCUMENT_TYPE_LICENCE = "Licence"
         const val DOCUMENT_TYPE_AADHAAR_CARD = "Aadhaar Card"
@@ -92,6 +93,12 @@ class Constants {
 
         const val CURRENT_ADDRESS_UPDATE_DATA = "currentAddressUpdateData"
         const val PERMANENT_ADDRESS_UPDATE_DATA = "permanentAddressUpdateData"
+
+        const val ORDER_NUMBER ="ORDER_NUMBER"
+        const val ORDER_TYPE = "ORDER_TYPE"
+        const val CASH = "Cash"
+        const val ONLINE = "Online"
+        const val CASH_PAYMENT = "CASH_PAYMENT"
 
     }
 }

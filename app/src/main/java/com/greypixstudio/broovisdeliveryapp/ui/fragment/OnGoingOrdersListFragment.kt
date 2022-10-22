@@ -9,10 +9,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.greypixstudio.broovisdeliveryapp.R
 import com.greypixstudio.broovisdeliveryapp.adapter.OnGoingOrderListAdapter
 import com.greypixstudio.broovisdeliveryapp.databinding.OnGoingOrdersListFragmentBinding
+import com.greypixstudio.broovisdeliveryapp.model.JsonConstants
 import com.greypixstudio.broovisdeliveryapp.model.loading.LoadingState
 import com.greypixstudio.broovisdeliveryapp.model.orderdata.ongoingorderlist.Order
 import com.greypixstudio.broovisdeliveryapp.ui.activity.NotDeliveredReasonActivity
@@ -59,80 +61,7 @@ class OnGoingOrdersListFragment : BaseFragment(), OnGoingOrderListAdapter.OnItem
 
     private fun getOrderDetailListObserver() {
         if (Utils.checkConnection(requireActivity())) {
-
             orderDetailViewModel.getOrderListDetailResponse(toString())
-
-            if (!orderDetailViewModel.getOrderListDetailData.hasObservers()) {
-                orderDetailViewModel.getOrderListDetailData.observe(requireActivity()) { getOrderListDetailData ->
-                    if (getOrderListDetailData.success) {
-                        Utils.hideProgress()
-                        upcomingOrderList.clear()
-                        if (getOrderListDetailData.results.orders.size != 0) {
-                            upcomingOrderList.addAll(getOrderListDetailData.results.orders)
-                            upcomingOrderList.reverse()
-
-                            mOnGoingOrderListAdapter =
-                                OnGoingOrderListAdapter(requireActivity(), upcomingOrderList, this)
-                            binding.orderListRecyclerView.layoutManager =
-                                LinearLayoutManager(requireContext())
-                            binding.orderListRecyclerView.setHasFixedSize(true)
-                            binding.orderListRecyclerView.adapter = mOnGoingOrderListAdapter
-                            binding.orderListRecyclerView.visibility = View.VISIBLE
-                            binding.emptyCartImgView.visibility = View.GONE
-                        } else {
-                            binding.orderListRecyclerView.visibility = View.GONE
-                            binding.emptyCartImgView.visibility = View.VISIBLE
-                        }
-
-                        completedDeliveryCount =
-                            getOrderListDetailData.results.orderTotals.deliveredOrders
-                        totalDeliveryCount = getOrderListDetailData.results.orderTotals.totalOrders
-
-
-                    } else {
-                        binding.orderListRecyclerView.visibility = View.GONE
-                        binding.emptyCartImgView.visibility = View.VISIBLE
-                    }
-                }
-            }
-            /**
-             * observe for failed response from API
-             */
-            if (!orderDetailViewModel.loadingState.hasObservers()) {
-                orderDetailViewModel.loadingState.observe(requireActivity()) { loadingState ->
-                    when (loadingState.status) {
-                        LoadingState.Status.RUNNING -> {
-                            if (!Utils.isProgressShowing()) {
-                                Utils.showProgress(requireActivity())
-                            }
-                        }
-                        LoadingState.Status.SUCCESS -> {
-                            Utils.hideProgress()
-                        }
-                        LoadingState.Status.FAILED -> {
-                            Utils.hideProgress()
-                            val errorData = loadingState.errorData
-                            errorData.let {
-                                val errorCode = errorData?.errorCode
-                                val errorMessage = errorData?.message
-                                if (errorCode == 200) {
-                                    binding.orderListRecyclerView.visibility = View.GONE
-                                    binding.emptyCartImgView.visibility = View.VISIBLE
-
-                                } else {
-                                    checkErrorCode(errorCode!!)
-                                    Toast.makeText(
-                                        requireActivity(),
-                                        errorData.message,
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                }
-                            }
-
-                        }
-                    }
-                }
-            }
         } else {
             Toast.makeText(
                 requireActivity(),
@@ -140,34 +69,117 @@ class OnGoingOrdersListFragment : BaseFragment(), OnGoingOrderListAdapter.OnItem
                 Toast.LENGTH_SHORT
             ).show()
         }
+        if (!orderDetailViewModel.getOrderListDetailData.hasObservers()) {
+            orderDetailViewModel.getOrderListDetailData.observe(requireActivity()) { getOrderListDetailData ->
+                if (getOrderListDetailData.success) {
+                    Utils.hideProgress()
+                    upcomingOrderList.clear()
+                    if (getOrderListDetailData.results.orders.size != 0) {
+                        upcomingOrderList.addAll(getOrderListDetailData.results.orders)
+                        upcomingOrderList.reverse()
+
+                        mOnGoingOrderListAdapter =
+                            OnGoingOrderListAdapter(requireActivity(), upcomingOrderList, this)
+                        binding.orderListRecyclerView.layoutManager =
+                            LinearLayoutManager(requireContext())
+                        binding.orderListRecyclerView.setHasFixedSize(true)
+                        binding.orderListRecyclerView.adapter = mOnGoingOrderListAdapter
+                        binding.orderListRecyclerView.visibility = View.VISIBLE
+                        binding.emptyCartImgView.visibility = View.GONE
+                    } else {
+                        binding.orderListRecyclerView.visibility = View.GONE
+                        binding.emptyCartImgView.visibility = View.VISIBLE
+                    }
+
+                    completedDeliveryCount =
+                        getOrderListDetailData.results.orderTotals.deliveredOrders
+                    totalDeliveryCount = getOrderListDetailData.results.orderTotals.totalOrders
+
+
+                } else {
+                    binding.orderListRecyclerView.visibility = View.GONE
+                    binding.emptyCartImgView.visibility = View.VISIBLE
+                }
+            }
+        }
+        /**
+         * observe for failed response from API
+         */
+        if (!orderDetailViewModel.loadingState.hasObservers()) {
+            orderDetailViewModel.loadingState.observe(requireActivity()) { loadingState ->
+                when (loadingState.status) {
+                    LoadingState.Status.RUNNING -> {
+                        if (!Utils.isProgressShowing()) {
+                            Utils.showProgress(requireActivity())
+                        }
+                    }
+                    LoadingState.Status.SUCCESS -> {
+                        Utils.hideProgress()
+                    }
+                    LoadingState.Status.FAILED -> {
+                        Utils.hideProgress()
+                        val errorData = loadingState.errorData
+                        errorData.let {
+                            val errorCode = errorData?.errorCode
+                            val errorMessage = errorData?.message
+                            if (errorCode == 200) {
+                                binding.orderListRecyclerView.visibility = View.GONE
+                                binding.emptyCartImgView.visibility = View.VISIBLE
+
+                            } else {
+                                checkErrorCode(errorCode!!)
+                                Toast.makeText(
+                                    requireActivity(),
+                                    errorData.message,
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        deliveredOrderListCountHandledLivaData.observe(viewLifecycleOwner) {
+            if (it.getContentIfNotHandled() == true) {
+                getOrderDetailListObserver()
+            }
+        }
+
+    }
 
     override fun onDeliveredClick(onGoingOrderList: Order, position: Int) {
+        if (!onGoingOrderList.cashPayment.isNullOrEmpty()) {
+            val bundle = Bundle()
+            bundle.putString(Constants.ORDER_TYPE, onGoingOrderList.type)
+            bundle.putString(Constants.ORDER_NUMBER, onGoingOrderList.orderNumber)
+            bundle.putString(Constants.CASH_PAYMENT, onGoingOrderList.cashPayment)
+            val paymentQRDialogFragment = PaymentQRDialogFragment()
+            paymentQRDialogFragment.arguments = bundle
+            paymentQRDialogFragment.show(
+                requireActivity().supportFragmentManager,
+                "paymentQRDialogFragment"
+            )
+        } else {
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setTitle(R.string.sub_delivered_order)
+            builder.setMessage(R.string.delivered_order_desc)
+            builder.setPositiveButton(getString(R.string.lbl_confirm)) { dialogInterface, _ ->
+                dialogInterface.dismiss()
+                orderDeliveredObserver(onGoingOrderList.type, onGoingOrderList.orderNumber)
 
-        val bundle = Bundle()
-        val paymentQRDialogFragment = PaymentQRDialogFragment()
-        paymentQRDialogFragment.show(
-            requireActivity().supportFragmentManager,
-            "invalidUserBottomSheetFragment"
-        )
-
-        /*  val builder = AlertDialog.Builder(requireContext())
-          builder.setTitle(R.string.sub_delivered_order)
-          builder.setMessage(R.string.delivered_order_desc)
-          builder.setPositiveButton(getString(R.string.lbl_confirm)) { dialogInterface, _ ->
-              dialogInterface.dismiss()
-              orderDeliveredObserver(onGoingOrderList.type , onGoingOrderList.oRDERNUMBER)
-
-          }
-          builder.setNegativeButton(getString(R.string.lbl_cancel)) { dialogInterface, _ ->
-              dialogInterface.dismiss()
-          }
-          val alertDialog: AlertDialog = builder.create()
-          alertDialog.setCancelable(false)
-          alertDialog.show()*/
-
-
+            }
+            builder.setNegativeButton(getString(R.string.lbl_cancel)) { dialogInterface, _ ->
+                dialogInterface.dismiss()
+            }
+            val alertDialog: AlertDialog = builder.create()
+            alertDialog.setCancelable(false)
+            alertDialog.show()
+        }
     }
 
     private fun orderDeliveredObserver(orderType: String, orderNumber: String) {
@@ -190,8 +202,6 @@ class OnGoingOrdersListFragment : BaseFragment(), OnGoingOrderListAdapter.OnItem
                         getString(R.string.msg_delivered_order),
                         Toast.LENGTH_SHORT
                     ).show()
-
-
                 }
             }
         }
@@ -223,7 +233,6 @@ class OnGoingOrdersListFragment : BaseFragment(), OnGoingOrderListAdapter.OnItem
                                 ).show()
                             }
                         }
-
                     }
                 }
             }
@@ -245,21 +254,22 @@ class OnGoingOrdersListFragment : BaseFragment(), OnGoingOrderListAdapter.OnItem
 
     override fun onNotDeliveredOrderClick(onGoingOrderList: Order, position: Int) {
         val mIntent = Intent(requireActivity(), NotDeliveredReasonActivity::class.java)
-        mIntent.putExtra("type", onGoingOrderList.type)
-        mIntent.putExtra("order_number", onGoingOrderList.oRDERNUMBER)
+        mIntent.putExtra(JsonConstants.type, onGoingOrderList.type)
+        mIntent.putExtra(JsonConstants.orderNumber, onGoingOrderList.orderNumber)
         startActivity(mIntent)
-
     }
 
-    /* override fun onNotDeliveredClick(onGoingOrderList: Order, position: Int) {
-
-     }
- */
     override fun onCallImageClick(onGoingOrderList: Order, position: Int) {
         val dialIntent = Intent(Intent.ACTION_DIAL)
         dialIntent.data = Uri.parse("tel:" + onGoingOrderList.customerMobile)
         startActivity(dialIntent)
     }
+
+    companion object {
+        var deliveredOrderListCountHandledLivaData: MutableLiveData<Event<Boolean>> =
+            MutableLiveData<Event<Boolean>>()
+    }
+
 }
 
 
