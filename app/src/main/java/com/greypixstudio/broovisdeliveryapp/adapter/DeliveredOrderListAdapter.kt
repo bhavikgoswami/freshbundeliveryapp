@@ -62,13 +62,17 @@ class DeliveredOrderListAdapter(
             deliveredOrderList[position].totalQty.toInt().toString()
         holder.orderIdTxtView.text = deliveredOrderList[position].orderId.toString()
         holder.addressTxtView.text = deliveredOrderList[position].address
-        if (deliveredOrderList[position].cashPayment != null) {
-            holder.relAmount.visibility = View.VISIBLE
-            holder.amountTextView.text =
-                mContext.getString(R.string.lbl_rs) + Constants.BLANK_SPACE + deliveredOrderList[position].cashPayment
-        } else {
-            holder.relAmount.visibility = View.GONE
-        }
+        if (deliveredOrderList[position].paymentBy == Constants.WALLET_AND_CASH_ON_DELIVERY
+            || deliveredOrderList[position].paymentBy == Constants.CASH_ON_DELIVERY
+        )
+
+            if (deliveredOrderList[position].totalCash != null) {
+                holder.relAmount.visibility = View.VISIBLE
+                holder.amountTextView.text =
+                    mContext.getString(R.string.lbl_rs) + Constants.BLANK_SPACE + deliveredOrderList[position].totalCash
+            } else {
+                holder.relAmount.visibility = View.GONE
+            }
 
         if (deliveredOrderList[position].deliveryStatus == Constants.ORDER_DELIVERED) {
             holder.deliveredImageView.visibility = View.VISIBLE

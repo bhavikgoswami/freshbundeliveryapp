@@ -33,4 +33,18 @@ class NotificationRepository (val api: NotificationInterface, private val contex
             APIUtils.customException(context, e)
         }
     }
+
+
+    suspend fun markAsRead(id:String,readStatus: String): AppResult<Any> {
+        return try {
+            val apiResponse = api.markAsRead(NetworkUtils.getHeaders(),id,readStatus)
+            if (apiResponse.isSuccessful) {
+                APIUtils.handleSuccess(apiResponse)
+            } else {
+                APIUtils.handleApiError(apiResponse)
+            }
+        } catch (e: Exception) {
+            APIUtils.customException(context, e)
+        }
+    }
 }

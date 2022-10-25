@@ -58,6 +58,11 @@ data class Record(
     val type: String,
     @SerializedName("wing")
     val wing: String,
-    @SerializedName("cash_payment")
-    val cashPayment: String?
+    @SerializedName("payment_by")
+    val paymentBy: String?,
+    @SerializedName("total_cash")
+    val totalCash: String?,
+    @SerializedName("total_wallet")
+    val totalWallet: String?
+
 )

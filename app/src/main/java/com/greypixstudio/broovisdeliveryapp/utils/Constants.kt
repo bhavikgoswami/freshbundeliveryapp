@@ -100,5 +100,11 @@ class Constants {
         const val ONLINE = "Online"
         const val CASH_PAYMENT = "CASH_PAYMENT"
 
+        const val YES = "Yes"
+        const val NO = "No"
+        const val WALLET_AND_CASH_ON_DELIVERY = "Wallet and Cash On Delivery"
+        const val CASH_ON_DELIVERY = "Cash On Delivery"
+        const val WALLET = "Wallet"
+
     }
 }

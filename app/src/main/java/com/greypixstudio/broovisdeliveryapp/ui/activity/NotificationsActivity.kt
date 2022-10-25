@@ -14,6 +14,7 @@ import com.greypixstudio.broovisdeliveryapp.databinding.NotificationsActivityBin
 import com.greypixstudio.broovisdeliveryapp.model.loading.LoadingState
 import com.greypixstudio.broovisdeliveryapp.model.notification.notificationlist.Record
 import com.greypixstudio.broovisdeliveryapp.ui.base.BaseActivity
+import com.greypixstudio.broovisdeliveryapp.utils.Constants
 import com.greypixstudio.broovisdeliveryapp.utils.Utils
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -59,7 +60,10 @@ class NotificationsActivity : BaseActivity(), NotificationAdapter.OnItemClickLis
             notificationViewModel.notificationResponse.observe(this) { notificationResponse ->
                 if (notificationResponse.success) {
                     if (notificationResponse.results != null) {
-                        notificationResponse.results.records!!.let { notificationList.addAll(it) }
+                        notificationResponse.results.records.let {
+                            notificationList.clear()
+                            notificationList.addAll(it)
+                        }
                         notificationList.reverse()
                         if (notificationList.size == 0) {
                             binding.notificationListRecyclerView.visibility = View.GONE
@@ -212,6 +216,29 @@ class NotificationsActivity : BaseActivity(), NotificationAdapter.OnItemClickLis
     }
 
     override fun onNotificationClick(item: Record, position: Int) {
-        TODO("Not yet implemented")
+        markAsRead(item.id.toString())
+    }
+
+    private fun markAsRead(id: String) {
+
+        if (Utils.checkConnection(this@NotificationsActivity)) {
+            notificationViewModel.markAsRead(id, Constants.YES)
+        } else {
+            Toast.makeText(
+                this@NotificationsActivity,
+                getString(R.string.msg_internet_connection_not_available),
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+        if (!notificationViewModel.notificationMarkResponse.hasObservers()) {
+            notificationViewModel.notificationMarkResponse.observe(this) { notificationResponse ->
+                if (notificationResponse.success) {
+                    getNotifications()
+
+                }
+                mNotificationAdapter.notifyDataSetChanged()
+
+            }
+        }
     }
 }

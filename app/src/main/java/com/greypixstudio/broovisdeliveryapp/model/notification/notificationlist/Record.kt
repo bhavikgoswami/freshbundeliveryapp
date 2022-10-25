@@ -35,5 +35,7 @@ data class Record(
     @SerializedName("updated_at")
     val updatedAt: String,
     @SerializedName("updated_by")
-    val updatedBy: Any
+    val updatedBy: Any,
+    @SerializedName("read_status")
+    val read_status: String
 )

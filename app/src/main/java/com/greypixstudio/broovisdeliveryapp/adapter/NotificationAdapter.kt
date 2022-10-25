@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.greypixstudio.broovisdeliveryapp.R
 import com.greypixstudio.broovisdeliveryapp.model.notification.notificationlist.Record
+import com.greypixstudio.broovisdeliveryapp.utils.Constants
 
 class NotificationAdapter(
     private val mContext: Context,
@@ -25,6 +27,7 @@ class NotificationAdapter(
             itemView.findViewById(R.id.notificationTitleTxtView)
         val notificationDescTxtView: TextView = itemView.findViewById(R.id.notificationDescTxtView)
         val notificationTimeTxtView: TextView = itemView.findViewById(R.id.notificationTimeTxtView)
+        val markImageView: AppCompatImageView = itemView.findViewById(R.id.markImageView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -37,6 +40,14 @@ class NotificationAdapter(
         holder.notificationTitleTxtView.text = notificationList[position].title
         holder.notificationDescTxtView.text = notificationList[position].body
         holder.notificationTimeTxtView.text = notificationList[position].date
+        if (notificationList[position].read_status == Constants.YES) {
+            holder.markImageView.visibility = View.GONE
+        } else {
+            holder.markImageView.visibility = View.VISIBLE
+        }
+        holder.itemView.setOnClickListener {
+            listener.onNotificationClick(notificationList[position], position)
+        }
     }
 
     override fun getItemCount(): Int {

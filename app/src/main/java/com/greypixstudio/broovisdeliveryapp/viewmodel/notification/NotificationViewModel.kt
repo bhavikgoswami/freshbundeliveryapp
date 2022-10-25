@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.gson.GsonBuilder
+import com.greypixstudio.broovisdeliveryapp.model.notification.markasread.NotificationMarkResponse
 import com.greypixstudio.broovisdeliveryapp.model.loading.LoadingState
 import com.greypixstudio.broovisdeliveryapp.model.notification.notificationclear.NotificationClearResponse
 import com.greypixstudio.broovisdeliveryapp.model.notification.notificationlist.NotificationListResponse
@@ -20,6 +21,9 @@ class NotificationViewModel(private val repository: NotificationRepository) : Vi
 
     val notificationResponse = MutableLiveData<NotificationListResponse>()
     val notificationClearResponse = MutableLiveData<NotificationClearResponse>()
+    val notificationMarkResponse = MutableLiveData<NotificationMarkResponse>()
+
+
     fun getNotification() {
         mLoadingState.postValue(LoadingState.LOADING)
         viewModelScope.launch {
@@ -70,6 +74,38 @@ class NotificationViewModel(private val repository: NotificationRepository) : Vi
                                 NotificationClearResponse::class.java
                             )
                             notificationClearResponse.value = apiResponse
+                        } else {
+                            val errorData =
+                                gson.fromJson<ErrorData>(responseJson, ErrorData::class.java)
+                            mLoadingState.postValue(LoadingState.error(errorData))
+                        }
+                    }
+                }
+                is AppResult.Error -> {
+                    mLoadingState.postValue(LoadingState.error(result.errorData))
+                }
+            }
+        }
+    }
+
+    fun markAsRead(id: String,readStatus: String) {
+        mLoadingState.postValue(LoadingState.LOADING)
+        viewModelScope.launch {
+            val result = repository.markAsRead(id,readStatus)
+            when (result) {
+                is AppResult.Success -> {
+                    mLoadingState.postValue(LoadingState.LOADED)
+                    result.successData.let {
+                        val gson = GsonBuilder().create()
+                        val responseJson = gson.toJson(it)
+                        val responseData =
+                            gson.fromJson<APIResponse>(responseJson, APIResponse::class.java)
+                        if (responseData.success) {
+                            val apiResponse = gson.fromJson<NotificationMarkResponse>(
+                                responseJson,
+                                NotificationMarkResponse::class.java
+                            )
+                            notificationMarkResponse.value = apiResponse
                         } else {
                             val errorData =
                                 gson.fromJson<ErrorData>(responseJson, ErrorData::class.java)

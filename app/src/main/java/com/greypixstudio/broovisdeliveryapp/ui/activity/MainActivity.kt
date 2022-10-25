@@ -19,10 +19,12 @@ import com.google.firebase.messaging.FirebaseMessaging
 
 import com.greypixstudio.broovisdeliveryapp.R
 import com.greypixstudio.broovisdeliveryapp.databinding.MainActivityBinding
+import com.greypixstudio.broovisdeliveryapp.model.loading.LoadingState
 import com.greypixstudio.broovisdeliveryapp.ui.base.BaseActivity
 import com.greypixstudio.broovisdeliveryapp.utils.Constants
 import com.greypixstudio.broovisdeliveryapp.utils.Event
 import com.greypixstudio.broovisdeliveryapp.utils.Utils
+import com.greypixstudio.broovisdeliveryapp.viewmodel.notification.NotificationViewModel
 import com.greypixstudio.broovisdeliveryapp.viewmodel.user.UserViewModel
 import io.paperdb.Paper
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -32,15 +34,16 @@ class MainActivity : BaseActivity() {
     lateinit var binding: MainActivityBinding
     lateinit var navController: NavController
     private val userViewModel by viewModel<UserViewModel>()
+    private val notificationViewModel by viewModel<NotificationViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-      getFirebaseToken()
+        getFirebaseToken()
         init()
     }
 
-   private fun getFirebaseToken() {
+    private fun getFirebaseToken() {
         FirebaseOptions.Builder()
             .setProjectId(Constants.PROJECT_ID)
             .setApplicationId(Constants.APPLICATION_ID)
@@ -165,5 +168,65 @@ class MainActivity : BaseActivity() {
 
         @JvmStatic
         fun newInstance() = MainActivity().apply {}
+    }
+
+    override fun onResume() {
+        super.onResume()
+        getNotifications()
+    }
+
+    private fun getNotifications() {
+        if (Utils.checkConnection(this@MainActivity)) {
+            notificationViewModel.getNotification()
+        } else {
+            Toast.makeText(
+                this@MainActivity,
+                getString(R.string.msg_internet_connection_not_available),
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+        if (!notificationViewModel.notificationResponse.hasObservers()) {
+            notificationViewModel.notificationResponse.observe(this) { notificationResponse ->
+                if (notificationResponse.success) {
+                    if (notificationResponse.results != null) {
+                        notificationResponse.results.records!!.let { notiifcations ->
+                            for (i in notiifcations) {
+                                if (i.read_status == Constants.NO) {
+                                    binding.notificationImgView.setImageResource(R.drawable.ic_notifications)
+                                }
+                            }
+                        }
+                    } else {
+                        binding.notificationImgView.setImageResource(R.drawable.ic_notification)
+                    }
+                }
+            }
+        }
+
+        /**
+         * observe for failed response from API
+         */
+        if (!notificationViewModel.loadingState.hasObservers()) {
+            notificationViewModel.loadingState.observe(this) { loadingState ->
+                when (loadingState.status) {
+                    LoadingState.Status.RUNNING -> {
+                        if (!Utils.isProgressShowing()) {
+                            Utils.showProgress(this@MainActivity)
+                        }
+                    }
+                    LoadingState.Status.SUCCESS -> {
+                        Utils.hideProgress()
+                    }
+                    LoadingState.Status.FAILED -> {
+                        Utils.hideProgress()
+                        val errorData = loadingState.errorData
+                        val errorCode = errorData!!.errorCode
+
+                        checkErrorCode(errorData.errorCode)
+
+                    }
+                }
+            }
+        }
     }
 }
