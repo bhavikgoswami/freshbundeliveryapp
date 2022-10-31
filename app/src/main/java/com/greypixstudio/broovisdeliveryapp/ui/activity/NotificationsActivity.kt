@@ -14,7 +14,9 @@ import com.greypixstudio.broovisdeliveryapp.databinding.NotificationsActivityBin
 import com.greypixstudio.broovisdeliveryapp.model.loading.LoadingState
 import com.greypixstudio.broovisdeliveryapp.model.notification.notificationlist.Record
 import com.greypixstudio.broovisdeliveryapp.ui.base.BaseActivity
+import com.greypixstudio.broovisdeliveryapp.ui.fragment.HomeFragment
 import com.greypixstudio.broovisdeliveryapp.utils.Constants
+import com.greypixstudio.broovisdeliveryapp.utils.Event
 import com.greypixstudio.broovisdeliveryapp.utils.Utils
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -63,6 +65,7 @@ class NotificationsActivity : BaseActivity(), NotificationAdapter.OnItemClickLis
                         notificationResponse.results.records.let {
                             notificationList.clear()
                             notificationList.addAll(it)
+                            mNotificationAdapter.notifyDataSetChanged()
                         }
                         notificationList.reverse()
                         if (notificationList.size == 0) {
@@ -164,6 +167,7 @@ class NotificationsActivity : BaseActivity(), NotificationAdapter.OnItemClickLis
             notificationViewModel.notificationClearResponse.observe(this) { notificationResponse ->
                 if (notificationResponse.success) {
                     notificationList.clear()
+                    (MainActivity).notificationIcon.postValue(Event(true))
                     binding.notificationListRecyclerView.visibility = View.GONE
                     binding.noNotification.visibility = View.VISIBLE
                     binding.notificationToolbar.clearBtn.visibility = View.GONE

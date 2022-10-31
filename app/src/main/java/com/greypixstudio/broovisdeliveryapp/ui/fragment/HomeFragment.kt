@@ -248,7 +248,6 @@ class HomeFragment : BaseFragment() {
 
         })
 
-
         binding.tabs.getTabAt(0)?.select()
     }
 

@@ -66,12 +66,14 @@ class DeliveredOrderListAdapter(
             || deliveredOrderList[position].paymentBy == Constants.CASH_ON_DELIVERY
         )
 
-            if (deliveredOrderList[position].totalCash != null) {
-                holder.relAmount.visibility = View.VISIBLE
-                holder.amountTextView.text =
-                    mContext.getString(R.string.lbl_rs) + Constants.BLANK_SPACE + deliveredOrderList[position].totalCash
-            } else {
-                holder.relAmount.visibility = View.GONE
+            if (deliveredOrderList[position].deliveryStatus == Constants.ORDER_DELIVERED) {
+                if (deliveredOrderList[position].totalCash != null) {
+                    holder.relAmount.visibility = View.VISIBLE
+                    holder.amountTextView.text =
+                        mContext.getString(R.string.lbl_rs) + Constants.BLANK_SPACE + deliveredOrderList[position].totalCash
+                } else {
+                    holder.relAmount.visibility = View.GONE
+                }
             }
 
         if (deliveredOrderList[position].deliveryStatus == Constants.ORDER_DELIVERED) {
@@ -87,7 +89,7 @@ class DeliveredOrderListAdapter(
             holder.notDeliverImageView.visibility = View.VISIBLE
             holder.notDeliverTxtView.visibility = View.VISIBLE
         }
-        holder.relVacation.setOnClickListener {
+        holder.relVacation.setOnClickListener{
             listener.onVacationClick(
                 deliveredOrderList[position],
                 position

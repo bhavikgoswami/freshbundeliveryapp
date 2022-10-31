@@ -10,6 +10,7 @@ import com.greypixstudio.broovisdeliveryapp.model.orderdata.deliveredorder.Order
 import com.greypixstudio.broovisdeliveryapp.model.orderdata.deliveredorderlist.DeliveredOrderListResponse
 import com.greypixstudio.broovisdeliveryapp.model.orderdata.notdeliveredorder.OrderNotDeliveredResponse
 import com.greypixstudio.broovisdeliveryapp.model.orderdata.ongoingorderlist.OrderListResponse
+import com.greypixstudio.broovisdeliveryapp.model.orderdata.paymentRecievedData.PaymentReceivedResponse
 import com.greypixstudio.broovisdeliveryapp.model.orderdata.vacationmode.vacationapply.VacationApplyResponse
 import com.greypixstudio.broovisdeliveryapp.model.orderdata.vacationmode.vacationverify.VacationVerifyResponse
 import com.greypixstudio.broovisdeliveryapp.utils.api.APIResponse
@@ -28,6 +29,7 @@ class OrderDetailViewModel(private val repository: OrderDetailRepository): ViewM
     var notDeliveredOrderData = MutableLiveData<OrderNotDeliveredResponse>()
     var vacationApplyData = MutableLiveData<VacationApplyResponse>()
     var vacationVerifyData = MutableLiveData<VacationVerifyResponse>()
+    var paymentReceivedData = MutableLiveData<PaymentReceivedResponse>()
 
     fun getOrderListDetailResponse(getOrderListDetailRequestHashmap: String) {
         mLoadingState.postValue(LoadingState.LOADING)
@@ -79,6 +81,38 @@ class OrderDetailViewModel(private val repository: OrderDetailRepository): ViewM
                                 OrderDeliveredResponse::class.java
                             )
                             orderDeliveredData.value = orderDeliveredDataResponse
+                        } else {
+                            val errorData =
+                                gson.fromJson<ErrorData>(responseJson, ErrorData::class.java)
+                            mLoadingState.postValue(LoadingState.error(errorData))
+                        }
+                    }
+                }
+                is AppResult.Error -> {
+                    mLoadingState.postValue(LoadingState.error(result.errorData))
+                }
+            }
+        }
+    }
+
+    fun paymentReceived(orderDeliveredRequestHashmap: String) {
+        mLoadingState.postValue(LoadingState.LOADING)
+        viewModelScope.launch {
+            val result = repository.paymentReceived(orderDeliveredRequestHashmap)
+            when (result) {
+                is AppResult.Success -> {
+                    mLoadingState.postValue(LoadingState.LOADED)
+                    result.successData.let {
+                        val gson = GsonBuilder().create()
+                        val responseJson = gson.toJson(it)
+                        val responseData =
+                            gson.fromJson<APIResponse>(responseJson, APIResponse::class.java)
+                        if (responseData.success) {
+                            val paymentReceivedResponse = gson.fromJson<PaymentReceivedResponse>(
+                                responseJson,
+                                PaymentReceivedResponse::class.java
+                            )
+                            paymentReceivedData.value = paymentReceivedResponse
                         } else {
                             val errorData =
                                 gson.fromJson<ErrorData>(responseJson, ErrorData::class.java)

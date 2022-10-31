@@ -81,7 +81,7 @@ class PaymentQRDialogFragment : DialogFragment() {
         }
         builder.setPositiveButton(getString(R.string.lbl_confirm)) { dialogInterface, _ ->
             dialogInterface.dismiss()
-            orderDeliveredObserver(orderType, orderNumber, paymentType, paymentID)
+            paymentReceivedObserver(orderType, orderNumber, paymentType, paymentID)
         }
         builder.setNegativeButton(getString(R.string.lbl_cancel)) { dialogInterface, _ ->
             dialogInterface.dismiss()
@@ -99,17 +99,12 @@ class PaymentQRDialogFragment : DialogFragment() {
         );
     }
 
-    private fun orderDeliveredObserver(
-        orderType: String,
-        orderNumber: String,
-        paymentType: String,
-        paymentID: String
-    ) {
+    private fun orderDeliveredObserver(orderType: String, orderNumber: String) {
+
         val jsonObject = JSONObject()
+
         jsonObject.put(JsonConstants.type, orderType)
         jsonObject.put(JsonConstants.orderNumber, orderNumber)
-        jsonObject.put(JsonConstants.paymentType, paymentType)
-        jsonObject.put(JsonConstants.paymentId, paymentID)
 
         orderDetailViewModel.orderDeliveredResponse(jsonObject.toString())
 
@@ -117,18 +112,10 @@ class PaymentQRDialogFragment : DialogFragment() {
             orderDetailViewModel.orderDeliveredData.observe(requireActivity()) { orderDeliveredData ->
                 if (orderDeliveredData.success) {
                     Utils.hideProgress()
-                    // getOrderDetailListObserver()
                     (HomeFragment).deliveredOrderListCountHandledLivaData.postValue(Event(true))
                     (OnGoingOrdersListFragment).deliveredOrderListCountHandledLivaData.postValue(
                         Event(true)
                     )
-                    this.dismiss()
-                    Toast.makeText(
-                        requireActivity(),
-                        getString(R.string.msg_delivered_order),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                } else {
                     this.dismiss()
                     Toast.makeText(
                         requireActivity(),
@@ -169,6 +156,87 @@ class PaymentQRDialogFragment : DialogFragment() {
                     }
                 }
             }
+        }
+    }
+
+    private fun paymentReceivedObserver(
+        orderType: String,
+        orderNumber: String,
+        paymentType: String,
+        paymentID: String
+    ) {
+        val jsonObject = JSONObject()
+        jsonObject.put(JsonConstants.type, orderType)
+        jsonObject.put(JsonConstants.orderNumber, orderNumber)
+        jsonObject.put(JsonConstants.paymentType, paymentType)
+        jsonObject.put(JsonConstants.paymentId, paymentID)
+
+        orderDetailViewModel.paymentReceived(jsonObject.toString())
+
+        if (!orderDetailViewModel.paymentReceivedData.hasObservers()) {
+            orderDetailViewModel.paymentReceivedData.observe(requireActivity()) { orderDeliveredData ->
+                if (orderDeliveredData.success) {
+                    Utils.hideProgress()
+                    orderDeliveredObserver(orderType, orderNumber)
+                    (HomeFragment).deliveredOrderListCountHandledLivaData.postValue(Event(true))
+                    (OnGoingOrdersListFragment).deliveredOrderListCountHandledLivaData.postValue(
+                        Event(true)
+                    )
+                  //  this.dismiss()
+
+                    Toast.makeText(
+                        requireActivity(),
+                        getString(R.string.msg_delivered_order),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    this.dismiss()
+                    Toast.makeText(
+                        requireActivity(),
+                        getString(R.string.msg_not_delivered_order),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+        }
+        /**
+         * observe for failed response from API
+         */
+        if (!orderDetailViewModel.loadingState.hasObservers()) {
+            orderDetailViewModel.loadingState.observe(requireActivity()) { loadingState ->
+                when (loadingState.status) {
+                    LoadingState.Status.RUNNING -> {
+                        if (!Utils.isProgressShowing()) {
+                            Utils.showProgress(requireActivity())
+                        }
+                    }
+                    LoadingState.Status.SUCCESS -> {
+                        Utils.hideProgress()
+                    }
+                    LoadingState.Status.FAILED -> {
+                        Utils.hideProgress()
+                        val errorData = loadingState.errorData
+                        errorData.let {
+                            val errorCode = errorData?.errorCode
+                            val errorMessage = errorData?.message
+                            if (errorMessage != null) {
+                                Toast.makeText(
+                                    requireActivity(),
+                                    errorData.message,
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (Utils.isProgressShowing()) {
+            Utils.hideProgress()
         }
     }
 }

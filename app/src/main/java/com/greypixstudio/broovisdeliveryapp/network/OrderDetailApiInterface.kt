@@ -15,6 +15,10 @@ interface OrderDetailApiInterface {
     @Headers("Content-Type: application/json")
     @POST("delivery_user/order/delivered")
     suspend fun orderDelivered(@HeaderMap headers: Map<String ,String>, @Body orderDeliveredRequestHashmap :  String): Response<Any>
+ //order delivered
+    @Headers("Content-Type: application/json")
+    @POST("delivery_user/order/payment")
+    suspend fun paymentReceived(@HeaderMap headers: Map<String ,String>, @Body orderDeliveredRequestHashmap :  String): Response<Any>
 
     // delivered order list
     @Headers("Content-Type: application/json")

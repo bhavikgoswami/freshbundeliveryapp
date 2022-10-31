@@ -34,6 +34,15 @@ android {
         exclude 'META-INF/DEPENDENCIES'
     }
 
+    signingConfigs {
+        release {
+            storeFile file("D:/Projects/freshbundeliveryapp/app")
+            storePassword "Broovis"
+            keyAlias "Broovis"
+            keyPassword "Broovis"
+        }
+    }
+
     buildTypes {
         release {
             shrinkResources true

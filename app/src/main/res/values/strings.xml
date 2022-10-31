@@ -268,5 +268,6 @@
     <string name="lbl_rs">\u20B9</string>
     <string name="lbl_please_upload_licence_image">Please Upload Adhar Image</string>
     <string name="lbl_please_upload_adhar_card_image">Please upload Adhar card Image</string>
+    <string name="msg_payment_recieved">Payment Received.</string>
 
 </resources>

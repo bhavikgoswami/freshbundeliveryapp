@@ -37,6 +37,19 @@ class OrderDetailRepository(val api: OrderDetailApiInterface, private val contex
             APIUtils.customException(context, e)
         }
     }
+ suspend fun paymentReceived(orderDeliveredRequestHashmap: String): AppResult<Any> {
+        return try {
+            val apiResponse =
+                api.paymentReceived(NetworkUtils.getHeaders(), orderDeliveredRequestHashmap)
+            if (apiResponse.isSuccessful) {
+                APIUtils.handleSuccess(apiResponse)
+            } else {
+                APIUtils.handleApiError(apiResponse)
+            }
+        } catch (e: Exception) {
+            APIUtils.customException(context, e)
+        }
+    }
 
     suspend fun deliveredOrderList(deliveredOrderListRequestHashmap: String): AppResult<Any> {
         return try {

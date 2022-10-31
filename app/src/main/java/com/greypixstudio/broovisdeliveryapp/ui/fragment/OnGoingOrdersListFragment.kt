@@ -147,6 +147,8 @@ class OnGoingOrdersListFragment : BaseFragment(), OnGoingOrderListAdapter.OnItem
         deliveredOrderListCountHandledLivaData.observe(viewLifecycleOwner) {
             if (it.getContentIfNotHandled() == true) {
                 getOrderDetailListObserver()
+              //  orderDeliveredObserver(onGoingOrderList.type, onGoingOrderList.orderNumber)
+
             }
         }
 
@@ -186,8 +188,8 @@ class OnGoingOrdersListFragment : BaseFragment(), OnGoingOrderListAdapter.OnItem
 
         val jsonObject = JSONObject()
 
-        jsonObject.put("type", orderType)
-        jsonObject.put("order_number", orderNumber)
+        jsonObject.put(JsonConstants.type, orderType)
+        jsonObject.put(JsonConstants.orderNumber, orderNumber)
 
         orderDetailViewModel.orderDeliveredResponse(jsonObject.toString())
 

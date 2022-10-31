@@ -141,6 +141,7 @@ class DrivingLicenseUploadActivity : BaseActivity() {
                         setContent(sb)
                     }
                 }
+                sb.toString()
                 /*if (s.length >= 5) {
                     val chars = s.toString().toCharArray()
                     //The number subscript starts at 0

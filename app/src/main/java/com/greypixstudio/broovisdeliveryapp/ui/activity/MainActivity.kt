@@ -21,6 +21,7 @@ import com.greypixstudio.broovisdeliveryapp.R
 import com.greypixstudio.broovisdeliveryapp.databinding.MainActivityBinding
 import com.greypixstudio.broovisdeliveryapp.model.loading.LoadingState
 import com.greypixstudio.broovisdeliveryapp.ui.base.BaseActivity
+import com.greypixstudio.broovisdeliveryapp.ui.fragment.HomeFragment
 import com.greypixstudio.broovisdeliveryapp.utils.Constants
 import com.greypixstudio.broovisdeliveryapp.utils.Event
 import com.greypixstudio.broovisdeliveryapp.utils.Utils
@@ -165,6 +166,8 @@ class MainActivity : BaseActivity() {
     companion object {
         var notificationHandledLivaData: MutableLiveData<Event<Boolean>> =
             MutableLiveData<Event<Boolean>>()
+        var notificationIcon: MutableLiveData<Event<Boolean>> =
+            MutableLiveData<Event<Boolean>>()
 
         @JvmStatic
         fun newInstance() = MainActivity().apply {}
@@ -172,6 +175,11 @@ class MainActivity : BaseActivity() {
 
     override fun onResume() {
         super.onResume()
+        notificationIcon.observe(this) {
+            if (it.getContentIfNotHandled() == true) {
+                binding.notificationImgView.setImageResource(R.drawable.ic_notification)
+            }
+        }
         getNotifications()
     }
 
@@ -195,6 +203,9 @@ class MainActivity : BaseActivity() {
                                     binding.notificationImgView.setImageResource(R.drawable.ic_notifications)
                                 }
                             }
+                        }
+                        if (notificationResponse.results.records.isEmpty()) {
+                            binding.notificationImgView.setImageResource(R.drawable.ic_notification)
                         }
                     } else {
                         binding.notificationImgView.setImageResource(R.drawable.ic_notification)

@@ -82,7 +82,7 @@ class Constants {
         const val PRIVACY_POLICY_URL = "https://broovis.com/privacy_policy.html"
         const val ABOUT_US_URL = "https://broovis.com"
         const val SUPPORT_EMAIL = "contact@broovis.com"
-        const val PHONE_NUMBER = "+919727555615"
+        const val PHONE_NUMBER = "+917990018735"
 
         const val API_KEY = "AIzaSyA8FJNpD9BEz5BpzTM_wdb7dFYhE2xzprI"
         const val PROJECT_ID = "broovis-44102"
