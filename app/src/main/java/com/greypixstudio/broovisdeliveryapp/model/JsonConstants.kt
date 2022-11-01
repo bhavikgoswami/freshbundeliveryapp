@@ -28,6 +28,9 @@ class JsonConstants {
         const val  orderNumber = "order_number"
         const val  paymentType = "payment_type"
         const val  paymentId = "payment_id"
+        const val  backSide = "back_side"
+        const val  frontSide = "front_side"
+        const val  documentType = "document_type"
 
     }
 }

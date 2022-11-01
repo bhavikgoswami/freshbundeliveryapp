@@ -34,6 +34,7 @@ import com.greypixstudio.broovisdeliveryapp.utils.imagepicker.utils.PickerOption
 import com.greypixstudio.broovisdeliveryapp.viewmodel.uploaddocument.UploadDocumentViewModel
 import com.theartofdev.edmodo.cropper.CropImage
 import com.greypixstudio.broovisdeliveryapp.databinding.ToolbarLayoutBinding
+import com.greypixstudio.broovisdeliveryapp.model.JsonConstants
 import com.greypixstudio.broovisdeliveryapp.model.uploaddocument.getlincencedetail.Records
 import com.greypixstudio.broovisdeliveryapp.ui.base.BaseActivity
 import io.paperdb.Paper
@@ -210,7 +211,7 @@ class DrivingLicenseUploadActivity : BaseActivity() {
                             licenseFrontSideFile?.asRequestBody("multipart/form-data".toMediaTypeOrNull())
                         frontSiderequestBody?.let {
                             licenseFrontMultipart = MultipartBody.Part.createFormData(
-                                "front_side",
+                                JsonConstants.frontSide  ,
                                 licenseFrontSideFile?.name,
                                 it
                             )
@@ -220,7 +221,7 @@ class DrivingLicenseUploadActivity : BaseActivity() {
                                 licenseBackSideFile?.asRequestBody("multipart/form-data".toMediaTypeOrNull())
                             backSiderequestBody?.let {
                                 licenseBackMultipart = MultipartBody.Part.createFormData(
-                                    "back_side",
+                                    JsonConstants.backSide,
                                     licenseBackSideFile?.name,
                                     it
                                 )

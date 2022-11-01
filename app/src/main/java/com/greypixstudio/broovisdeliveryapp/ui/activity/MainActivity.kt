@@ -2,6 +2,7 @@ package com.greypixstudio.broovisdeliveryapp.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
@@ -20,6 +21,7 @@ import com.google.firebase.messaging.FirebaseMessaging
 import com.greypixstudio.broovisdeliveryapp.R
 import com.greypixstudio.broovisdeliveryapp.databinding.MainActivityBinding
 import com.greypixstudio.broovisdeliveryapp.model.loading.LoadingState
+import com.greypixstudio.broovisdeliveryapp.model.notification.notificationlist.Record
 import com.greypixstudio.broovisdeliveryapp.ui.base.BaseActivity
 import com.greypixstudio.broovisdeliveryapp.ui.fragment.HomeFragment
 import com.greypixstudio.broovisdeliveryapp.utils.Constants
@@ -29,6 +31,7 @@ import com.greypixstudio.broovisdeliveryapp.viewmodel.notification.NotificationV
 import com.greypixstudio.broovisdeliveryapp.viewmodel.user.UserViewModel
 import io.paperdb.Paper
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.util.*
 
 class MainActivity : BaseActivity() {
 
@@ -197,15 +200,20 @@ class MainActivity : BaseActivity() {
             notificationViewModel.notificationResponse.observe(this) { notificationResponse ->
                 if (notificationResponse.success) {
                     if (notificationResponse.results != null) {
-                        notificationResponse.results.records!!.let { notiifcations ->
-                            for (i in notiifcations) {
-                                if (i.read_status == Constants.NO) {
-                                    binding.notificationImgView.setImageResource(R.drawable.ic_notifications)
-                                }
+                        notificationResponse.results.records!!.let { notifcations ->
+                            val filteredList: ArrayList<Record> = ArrayList()
+                            notifcations.filter {
+                                it.read_status.lowercase(Locale.getDefault())
+                                    .contains(Constants.NO)
+                            }.forEach {
+                                filteredList.add(it)
                             }
-                        }
-                        if (notificationResponse.results.records.isEmpty()) {
-                            binding.notificationImgView.setImageResource(R.drawable.ic_notification)
+                            Log.e("filteredList",filteredList.size.toString())
+                            if (filteredList.size != 0) {
+                                binding.notificationImgView.setImageResource(R.drawable.ic_notifications)
+                            } else {
+                                binding.notificationImgView.setImageResource(R.drawable.ic_notification)
+                            }
                         }
                     } else {
                         binding.notificationImgView.setImageResource(R.drawable.ic_notification)

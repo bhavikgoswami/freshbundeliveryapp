@@ -5,8 +5,11 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.view.ActionMode
+import androidx.appcompat.view.ActionMode.Callback
 import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -18,12 +21,10 @@ import com.google.firebase.messaging.FirebaseMessaging
 import com.greypixstudio.broovisdeliveryapp.R
 import com.greypixstudio.broovisdeliveryapp.databinding.VerifyMpinActivityBinding
 import com.greypixstudio.broovisdeliveryapp.model.auth.user.User
-
 import com.greypixstudio.broovisdeliveryapp.model.loading.LoadingState
 import com.greypixstudio.broovisdeliveryapp.ui.base.BaseActivity
 import com.greypixstudio.broovisdeliveryapp.utils.Constants
 import com.greypixstudio.broovisdeliveryapp.utils.Utils
-import com.greypixstudio.broovisdeliveryapp.utils.Utils.Companion.showToast
 import com.greypixstudio.broovisdeliveryapp.viewmodel.user.UserViewModel
 import io.paperdb.Paper
 import kotlinx.android.synthetic.main.activity_mpinactivity.*
@@ -100,26 +101,81 @@ class VerifyMpinActivity : BaseActivity() {
     fun init() {
         binding.mPinView.setAnimationEnable(true)
         binding.mPinView.itemCount = 4
+        binding.mPinView.setTextIsSelectable(false);
         binding.mPinView.cursorColor = ResourcesCompat.getColor(resources, R.color.black, theme)
-        binding.mPinView.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                Log.d(
-                    "TAG",
-                    "onTextChanged() called with: s = [$s], start = [$start], before = [$before], count = [$count]"
-                )
+        binding.mPinView.customSelectionActionModeCallback = object : Callback,
+            android.view.ActionMode.Callback {
+            override fun onCreateActionMode(mode: android.view.ActionMode?, menu: Menu?): Boolean {
+                return false
             }
 
-            override fun afterTextChanged(s: Editable) {}
-        })
+            override fun onPrepareActionMode(mode: android.view.ActionMode?, menu: Menu?): Boolean {
+                menu?.removeItem(android.R.id.paste)
+                menu?.removeItem(android.R.id.copy)
+                for (i in 0 until menu!!.size()) {
+                    menu.getItem(i).isVisible = false
+                }
+                return true
+            }
 
-        binding.verifyMpinBtn.setOnClickListener {
+            override fun onActionItemClicked(
+                mode: android.view.ActionMode?,
+                item: MenuItem?
+            ): Boolean {
+                return false
+            }
+
+            override fun onDestroyActionMode(mode: android.view.ActionMode?) {
+            }
+
+            override fun onCreateActionMode(mode: ActionMode?, menu: Menu?): Boolean {
+                return false
+            }
+
+            override fun onPrepareActionMode(mode: ActionMode?, menu: Menu?): Boolean {
+                menu?.removeItem(android.R.id.paste)
+                menu?.removeItem(android.R.id.copy)
+                for (i in 0 until menu!!.size()) {
+                    menu.getItem(i).isVisible = false
+                }
+                return true
+
+            }
+
+            override fun onActionItemClicked(mode: ActionMode?, item: MenuItem?): Boolean {
+                return false
+            }
+
+            override fun onDestroyActionMode(mode: ActionMode?) {
+            }
+        }
+        binding.mPinView.addTextChangedListener(
+            object : TextWatcher {
+                override fun beforeTextChanged(
+                    s: CharSequence,
+                    start: Int,
+                    count: Int,
+                    after: Int
+                ) {
+                }
+
+                override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                    Log.d(
+                        "TAG",
+                        "onTextChanged() called with: s = [$s], start = [$start], before = [$before], count = [$count]"
+                    )
+                }
+
+                override fun afterTextChanged(s: Editable) {}
+            })
+
+        binding.verifyMpinBtn.setOnClickListener{
             if (binding.mPinView.text!!.isNotEmpty() && mPinView.text.toString().length == 4) {
                 verifyMpin(mPinView.text!!.toString())
             }
         }
 
-        binding.resetMpinTxtView.setOnClickListener {
+        binding.resetMpinTxtView.setOnClickListener{
             val mIntent = Intent(this@VerifyMpinActivity, MobileNumberActivity::class.java)
             mIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
             startActivity(mIntent)
@@ -163,14 +219,14 @@ class VerifyMpinActivity : BaseActivity() {
                                 Toast.LENGTH_SHORT
                             ).show()
                             lateinit var mIntent: Intent
-                            if (verifyMpinData.results.user.verifiedStatus.equals("New")) {
+                            if (verifyMpinData.results.user.verifiedStatus == "New") {
 
                                 mIntent =
                                     Intent(
                                         this@VerifyMpinActivity,
                                         UnderReviewProfileActivity::class.java
                                     )
-                            } else if (verifyMpinData.results.user.verifiedStatus.equals("Reviewed")) {
+                            } else if (verifyMpinData.results.user.verifiedStatus == "Reviewed") {
 
                                 mIntent =
                                     Intent(
@@ -178,37 +234,37 @@ class VerifyMpinActivity : BaseActivity() {
                                         DocumentUploadActivity::class.java
                                     )
                                 mIntent.putExtra("type", 1)
-                            } else if (verifyMpinData.results.user.verifiedStatus.equals("DocumentUploaded")) {
+                            } else if (verifyMpinData.results.user.verifiedStatus == "DocumentUploaded") {
                                 mIntent =
                                     Intent(
                                         this@VerifyMpinActivity,
                                         EnableLocationActivity::class.java
                                     )
-                            } else if (verifyMpinData.results.user.verifiedStatus.equals("DocumentAdded")) {
+                            } else if (verifyMpinData.results.user.verifiedStatus == "DocumentAdded") {
                                 mIntent =
                                     Intent(
                                         this@VerifyMpinActivity,
                                         EnableLocationActivity::class.java
                                     )
-                            } else if (verifyMpinData.results.user.verifiedStatus.equals("AddressAdded")) {
+                            } else if (verifyMpinData.results.user.verifiedStatus == "AddressAdded") {
 
                                 mIntent =
                                     Intent(
                                         this@VerifyMpinActivity,
                                         AddBankDetailsActivity::class.java
                                     )
-                            } else if (verifyMpinData.results.user.verifiedStatus.equals("BankAdded")) {
+                            } else if (verifyMpinData.results.user.verifiedStatus == "BankAdded") {
                                 mIntent =
                                     Intent(
                                         this@VerifyMpinActivity,
                                         UnderReviewProfileActivity::class.java
                                     )
-                            } else if (verifyMpinData.results.user.verifiedStatus.equals("Approved")) {
+                            } else if (verifyMpinData.results.user.verifiedStatus == "Approved") {
 
                                 mIntent =
                                     Intent(this@VerifyMpinActivity, MainActivity::class.java)
 
-                            } else if (verifyMpinData.results.user.verifiedStatus.equals("Reject")) {
+                            } else if (verifyMpinData.results.user.verifiedStatus == "Reject") {
 
                                 mIntent =
                                     Intent(
@@ -261,6 +317,5 @@ class VerifyMpinActivity : BaseActivity() {
             }
         }
     }
-
 }
 

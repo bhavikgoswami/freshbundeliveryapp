@@ -25,6 +25,7 @@ import com.greypixstudio.broovisdeliveryapp.utils.imagepicker.utils.PickerOption
 import com.greypixstudio.broovisdeliveryapp.viewmodel.uploaddocument.UploadDocumentViewModel
 import com.theartofdev.edmodo.cropper.CropImage
 import com.greypixstudio.broovisdeliveryapp.databinding.ToolbarLayoutBinding
+import com.greypixstudio.broovisdeliveryapp.model.JsonConstants
 import com.greypixstudio.broovisdeliveryapp.model.uploaddocument.getadharcarddetail.Records
 import com.greypixstudio.broovisdeliveryapp.ui.base.BaseActivity
 import io.paperdb.Paper
@@ -66,14 +67,11 @@ class AadharCardUploadActivity : BaseActivity() {
 
         init()
 
-
-
         open class AdhaarNumberTextWatcher(private val editText: EditText) : TextWatcher {
             private val isDelete = false
             private val lastContentLength = 0
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-
             }
 
             override fun afterTextChanged(s: Editable) {
@@ -139,7 +137,7 @@ class AadharCardUploadActivity : BaseActivity() {
                             aadhaarCardFrontSideFile?.asRequestBody("multipart/form-data".toMediaTypeOrNull())
                         frontSiderequestBody?.let {
                             aadhaarCardFrontMultipart = MultipartBody.Part.createFormData(
-                                "front_side",
+                                JsonConstants.frontSide,
                                 aadhaarCardFrontSideFile?.name,
                                 it
                             )
@@ -150,7 +148,7 @@ class AadharCardUploadActivity : BaseActivity() {
                             backSiderequestBody?.let {
                                 aadhaarCardBackMultipart =
                                     MultipartBody.Part.createFormData(
-                                        "back_side",
+                                        JsonConstants.backSide,
                                         aadhaarCardBackSideFile?.name,
                                         it
                                     )
@@ -372,7 +370,7 @@ class AadharCardUploadActivity : BaseActivity() {
 
     private fun getAdharCardDetail() {
         val jsonObject = JSONObject()
-        jsonObject.put(Constants.DOCUMENT_TYPE, getAdharCardDetail)
+        jsonObject.put(JsonConstants.documentType, getAdharCardDetail)
 
         if (Utils.checkConnection(this@AadharCardUploadActivity)) {
             uploadDocumentViewModel.getAdharCardDetailResponse(jsonObject.toString())

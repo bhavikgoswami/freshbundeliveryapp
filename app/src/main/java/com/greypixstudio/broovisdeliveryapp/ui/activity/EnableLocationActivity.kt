@@ -90,7 +90,7 @@ class EnableLocationActivity : BaseActivity() {
             )
             return
         }
-        if (isLocationEnabled(this@EnableLocationActivity)) {
+        //if (isLocationEnabled(this@EnableLocationActivity)) {
             try {
                 fusedLocationProviderClient =
                     LocationServices.getFusedLocationProviderClient(this@EnableLocationActivity)
@@ -106,9 +106,9 @@ class EnableLocationActivity : BaseActivity() {
 
                 var locationCallback = object : LocationCallback() {
                     override fun onLocationResult(locationResult: LocationResult) {
-
                         for (location in locationResult.locations) {
                             if (location != null) {
+
                             }
                         }
                     }
@@ -122,17 +122,15 @@ class EnableLocationActivity : BaseActivity() {
 
                 e.printStackTrace()
             }
-        }
+
     }
     private fun isLocationEnabled(context: Context): Boolean {
         val locationManager = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
         return LocationManagerCompat.isLocationEnabled(locationManager)
     }
 
-
     private fun openNextScreen() {
-        val activityIntent =
-            Intent(this@EnableLocationActivity, UseCurrentAddressActivity::class.java)
+        val activityIntent = Intent(this@EnableLocationActivity, UseCurrentAddressActivity::class.java)
         activityIntent.putExtra("type", 1)
         startActivity(activityIntent)
         overridePendingTransition(0, 0)
