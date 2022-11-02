@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "498352837148-l11s34rpk8os6kt73hvlrg6qf82j9skp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.greypixstudio.broovis",
+            "certificate_hash": "4b88c20a74b46b60919990890934a9efd55e03d4"
+          }
+        },
+        {
           "client_id": "498352837148-rn0esl5v0e3a71933659revcnfkptnkp.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -50,6 +58,22 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "498352837148-4b0lsvklg7d6qotrmkqnt2784kc2bah2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.greypixstudio.broovisdeliveryapp",
+            "certificate_hash": "005e2dd0093beeaddd5eba8f11360a794dda2a66"
+          }
+        },
+        {
+          "client_id": "498352837148-d57cf3p5qneh77aptic9im02raco780o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.greypixstudio.broovisdeliveryapp",
+            "certificate_hash": "4b88c20a74b46b60919990890934a9efd55e03d4"
+          }
+        },
         {
           "client_id": "498352837148-779v73f5fdn8eskiccbdc3vvr5gg1c4i.apps.googleusercontent.com",
           "client_type": 3

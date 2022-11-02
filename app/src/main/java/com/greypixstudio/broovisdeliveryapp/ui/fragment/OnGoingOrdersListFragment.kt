@@ -155,7 +155,7 @@ class OnGoingOrdersListFragment : BaseFragment(), OnGoingOrderListAdapter.OnItem
     }
 
     override fun onDeliveredClick(onGoingOrderList: Order, position: Int) {
-        if (!onGoingOrderList.cashPayment.isNullOrEmpty()) {
+        if (onGoingOrderList.paymentFlag=="1") {
             val bundle = Bundle()
             bundle.putString(Constants.ORDER_TYPE, onGoingOrderList.type)
             bundle.putString(Constants.ORDER_NUMBER, onGoingOrderList.orderNumber)

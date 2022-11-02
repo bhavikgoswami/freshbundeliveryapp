@@ -59,5 +59,7 @@ data class Order(
     @SerializedName("wing")
     val wing: String,
     @SerializedName("cash_payment")
-    val cashPayment: String
+    val cashPayment: String,
+    @SerializedName("payment_flag")
+    val paymentFlag: String
 )
