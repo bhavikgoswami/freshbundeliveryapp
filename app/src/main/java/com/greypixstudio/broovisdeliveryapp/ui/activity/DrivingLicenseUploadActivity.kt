@@ -1,6 +1,7 @@
 package com.greypixstudio.broovisdeliveryapp.ui.activity
 
 import android.Manifest
+import android.R.attr.editable
 import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.Context
@@ -10,7 +11,6 @@ import android.graphics.Bitmap
 import android.media.ExifInterface
 import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.text.Editable
@@ -26,18 +26,17 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.TransformationUtils
 import com.greypixstudio.broovisdeliveryapp.R
 import com.greypixstudio.broovisdeliveryapp.databinding.DrivingLicenseUploadActivityBinding
+import com.greypixstudio.broovisdeliveryapp.databinding.ToolbarLayoutBinding
+import com.greypixstudio.broovisdeliveryapp.model.JsonConstants
 import com.greypixstudio.broovisdeliveryapp.model.loading.LoadingState
+import com.greypixstudio.broovisdeliveryapp.model.uploaddocument.getlincencedetail.Records
+import com.greypixstudio.broovisdeliveryapp.ui.base.BaseActivity
 import com.greypixstudio.broovisdeliveryapp.utils.Constants
 import com.greypixstudio.broovisdeliveryapp.utils.Utils
 import com.greypixstudio.broovisdeliveryapp.utils.imagepicker.Picker
 import com.greypixstudio.broovisdeliveryapp.utils.imagepicker.utils.PickerOptions
 import com.greypixstudio.broovisdeliveryapp.viewmodel.uploaddocument.UploadDocumentViewModel
 import com.theartofdev.edmodo.cropper.CropImage
-import com.greypixstudio.broovisdeliveryapp.databinding.ToolbarLayoutBinding
-import com.greypixstudio.broovisdeliveryapp.model.JsonConstants
-import com.greypixstudio.broovisdeliveryapp.model.uploaddocument.getlincencedetail.Records
-import com.greypixstudio.broovisdeliveryapp.ui.base.BaseActivity
-import io.paperdb.Paper
 import kotlinx.android.synthetic.main.toolbar_layout.view.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -51,6 +50,7 @@ import java.io.IOException
 import java.io.InputStream
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 class DrivingLicenseUploadActivity : BaseActivity() {
 
@@ -115,6 +115,46 @@ class DrivingLicenseUploadActivity : BaseActivity() {
         }
         open class DrivingNumberTextWatcher(private val editText: EditText) : TextWatcher {
             private val isDelete = false
+            private val lastContentLength = 0
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+            }
+
+            override fun afterTextChanged(s: Editable) {
+                //The requirement is 130 1234 4567, the fourth and fifth digit spaces in the middle are preceded by spaces
+                val sb = StringBuffer(s)
+                //StringBuffer.length() is the length, so the subscript starts from 1
+                //If it is not a space character, insert a space character in front of it
+                if (s.length >= 5) {
+                    val chars = s.toString().toCharArray()
+                    //The number subscript starts at 0
+                    if (chars[4] != ' ') {
+                        sb.insert(4, ' ')
+                        setContent(sb)
+                    }
+                }
+                /*if (s.length >= 10) {
+                    val chars = s.toString().toCharArray()
+                    //Because a space is added to the fourth digit, the eighth digit is the ninth digit of the character array, and the subscript is 8.
+                    if (chars[9] != ' ') {
+                        sb.insert(9, ' ')
+                        setContent(sb)
+                    }
+                }*/
+            }
+
+            /**
+             * Add or remove space EditText settings
+             */
+            private fun setContent(sb: StringBuffer) {
+                editText.setText(sb.toString())
+                //Move the cursor to the back
+                editText.setSelection(sb.length)
+            }
+        }
+
+       /* open class DrivingNumberTextWatcher(private val editText: EditText) : TextWatcher {
+            private val isDelete = false
             private var lastContentLength = 0
             private var contentLength = 0
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
@@ -128,13 +168,13 @@ class DrivingLicenseUploadActivity : BaseActivity() {
 
             override fun afterTextChanged(s: Editable) {
                 //The requirement is 130 1234 4567, the fourth and fifth digit spaces in the middle are preceded by spaces
-                val sb = StringBuffer(s)
+              //  val sb = StringBuffer(s)
                 //StringBuffer.length() is the length, so the subscript starts from 1
                 //If it is not a space character, insert a space character in front of it
 
                 ////Log.d("lastContent","after : "+ s.length.toString())
 
-                if (s.length >= 5) {
+             *//*   if (s.length >= 5) {
                     val chars = s.toString().toCharArray()
                     //The number subscript starts at 0
                     if (chars[4] != ' ') {
@@ -142,8 +182,17 @@ class DrivingLicenseUploadActivity : BaseActivity() {
                         setContent(sb)
                     }
                 }
-                sb.toString()
-                /*if (s.length >= 5) {
+                sb.toString()*//*
+                val field = editable.toString()
+                val currCount = field.length
+
+                if (shouldIncrementOrDecrement(currCount, true)) {
+                    appendOrStrip(field, true)
+                } else if (shouldIncrementOrDecrement(currCount, false)) {
+                    appendOrStrip(field, false)
+                }
+                prevCount = cardNumber.length
+                *//*if (s.length >= 5) {
                     val chars = s.toString().toCharArray()
                     //The number subscript starts at 0
                     if (chars[4] != ' ' && chars[4] != ' ' && !Character.isLetter(chars[4])) {
@@ -164,10 +213,10 @@ class DrivingLicenseUploadActivity : BaseActivity() {
                             }
                         }
                     }
-                }*/
+                }*//*
             }
 
-            /* Add or remove space EditText settings*/
+            *//* Add or remove space EditText settings*//*
 
             private fun setContent(sb: StringBuffer) {
                 editText.setText(sb.toString())
@@ -175,7 +224,7 @@ class DrivingLicenseUploadActivity : BaseActivity() {
                 editText.setSelection(sb.length)
             }
         }
-
+*/
         binding.licenceNumberEdtView.addTextChangedListener(object :
             DrivingNumberTextWatcher(binding.licenceNumberEdtView) {
             override fun afterTextChanged(s: Editable) {
@@ -742,5 +791,28 @@ class DrivingLicenseUploadActivity : BaseActivity() {
         datepicker.show()
     }
 
+    private var prevCount = 0
+    private fun isAtSpaceDelimiter(currCount: Int): Boolean {
+        return currCount == 4 || currCount == 9 || currCount == 14
+    }
+     var cardNumber= ""
 
+    private fun shouldIncrementOrDecrement(currCount: Int, shouldIncrement: Boolean): Boolean {
+        return if (shouldIncrement) {
+            prevCount <= currCount && isAtSpaceDelimiter(currCount)
+        } else {
+            prevCount > currCount && isAtSpaceDelimiter(currCount)
+        }
+    }
+
+    private fun appendOrStrip(field: String, shouldAppend: Boolean) {
+        val sb = StringBuilder(field)
+        if (shouldAppend) {
+            sb.append(" ")
+        } else {
+            sb.setLength(sb.length - 1)
+        }
+        cardNumber=sb.toString()
+        //cardNumber=setSelection(sb.length)
+    }
 }
