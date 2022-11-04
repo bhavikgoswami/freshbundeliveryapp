@@ -50,7 +50,6 @@ class OnGoingOrdersListFragment : BaseFragment(), OnGoingOrderListAdapter.OnItem
             false
         )
         return binding.root
-
     }
 
     override fun onResume() {
@@ -271,7 +270,6 @@ class OnGoingOrdersListFragment : BaseFragment(), OnGoingOrderListAdapter.OnItem
         var deliveredOrderListCountHandledLivaData: MutableLiveData<Event<Boolean>> =
             MutableLiveData<Event<Boolean>>()
     }
-
 }
 
 

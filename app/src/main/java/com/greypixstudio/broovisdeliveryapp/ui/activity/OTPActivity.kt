@@ -108,7 +108,7 @@ class OTPActivity : BaseActivity() {
             mTimer?.cancel()
             mTimer = null
         }
-        mTimer = object : CountDownTimer(60000, 1000) {
+        mTimer = object : CountDownTimer(300000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 try {
                     val sec: Long = TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) % 60
@@ -195,7 +195,15 @@ class OTPActivity : BaseActivity() {
                         Utils.hideProgress()
                         val errorData = loadingState.errorData
                         val errorCode = errorData!!.errorCode
-                        checkErrorCode(errorCode!!)
+                        if (errorCode == 403) {
+                            Toast.makeText(
+                                this,
+                                "Your OTP is expired.Please try again",
+                                Toast.LENGTH_LONG
+                            ).show()
+                        } else {
+                            checkErrorCode(errorCode!!)
+                        }
 
                     }
                 }

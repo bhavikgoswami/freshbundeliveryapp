@@ -53,5 +53,7 @@ data class User(
     @SerializedName("vehicle_id")
     val vehicleId: Int,
     @SerializedName("verified_status")
-    val verifiedStatus: String
+    val verifiedStatus: String,
+    @SerializedName("otp_expiry")
+    val otp_expiry: String
 )

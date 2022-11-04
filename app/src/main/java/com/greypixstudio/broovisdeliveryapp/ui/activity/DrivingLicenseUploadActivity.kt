@@ -1,7 +1,6 @@
 package com.greypixstudio.broovisdeliveryapp.ui.activity
 
 import android.Manifest
-import android.R.attr.editable
 import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.Context
