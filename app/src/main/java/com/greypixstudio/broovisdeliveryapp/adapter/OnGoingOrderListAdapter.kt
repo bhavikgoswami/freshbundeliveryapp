@@ -32,7 +32,7 @@ class OnGoingOrderListAdapter(
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val orderTypeTxtView:TextView = itemView.findViewById(R.id.orderTypeTxtView)
+        val orderTypeTxtView: TextView = itemView.findViewById(R.id.orderTypeTxtView)
         val customerNameTxtView: TextView = itemView.findViewById(R.id.customerNameTxtView)
         val deliveryTimeTxtView: TextView = itemView.findViewById(R.id.deliveryTimeTxtView)
         val totalQualityOrderTextView: TextView = itemView.findViewById(R.id.totalQualityTxtView)
@@ -43,29 +43,44 @@ class OnGoingOrderListAdapter(
         val relVacation: RelativeLayout = itemView.findViewById(R.id.relVacation)
         val relNotDeliverOrder: RelativeLayout = itemView.findViewById(R.id.relNotDeliverOrder)
         val mapLnrLayout: LinearLayout = itemView.findViewById(R.id.mapLnrLayout)
-        val itemProductListLnrLayout:LinearLayout = itemView.findViewById(R.id.itemProductListLnrLayout)
+        val itemProductListLnrLayout: LinearLayout =
+            itemView.findViewById(R.id.itemProductListLnrLayout)
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.row_ongoing_order, parent, false)
+        val v =
+            LayoutInflater.from(parent.context).inflate(R.layout.row_ongoing_order, parent, false)
         return ViewHolder(v)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.customerNameTxtView.text = onGoingOrderList[position].customerName
-        holder.deliveryTimeTxtView.text = onGoingOrderList[position].deliveryTime
-        holder.totalQualityOrderTextView.text = onGoingOrderList[position].totalQty.toInt().toString()
-        holder.orderIdTxtView.text = onGoingOrderList[position].orderId.toString()
-        holder.addressTxtView.text = onGoingOrderList[position].address
-        val latitudes = onGoingOrderList[position].latitudes
-        val longitudes = onGoingOrderList[position].longitudes
+        var order = onGoingOrderList[position]
+        holder.customerNameTxtView.text = order.customerName
+        holder.deliveryTimeTxtView.text = order.deliveryTime
+        holder.totalQualityOrderTextView.text = order.totalQty.toInt().toString()
+        holder.orderIdTxtView.text = order.orderId.toString()
+        holder.addressTxtView.text = order.address
+        val latitudes = order.latitudes
+        val longitudes = order.longitudes
 
-
+        if (order.orderStatus == Constants.ORDER_CANCELLED) {
+            holder.mapLnrLayout.isEnabled = false
+            holder.relDelivered.isEnabled = false
+            holder.relVacation.isEnabled = false
+            holder.relNotDeliverOrder.isEnabled = false
+            holder.callImgView.isEnabled = false
+        }else{
+            holder.mapLnrLayout.isEnabled = true
+            holder.relDelivered.isEnabled = true
+            holder.relVacation.isEnabled = true
+            holder.relNotDeliverOrder.isEnabled = true
+            holder.callImgView.isEnabled = true
+        }
         holder.mapLnrLayout.setOnClickListener {
             val intent = Intent(
                 Intent.ACTION_VIEW,
-                Uri.parse("http://maps.google.com/maps?daddr="+latitudes+","+longitudes)
+                Uri.parse("http://maps.google.com/maps?daddr=$latitudes,$longitudes")
             )
             mContext.startActivity(intent)
         }
@@ -94,15 +109,15 @@ class OnGoingOrderListAdapter(
                 position
             )
         }
-        if(onGoingOrderList[position].type.equals(Constants.CART_ORDER)){
+        if (onGoingOrderList[position].type.equals(Constants.CART_ORDER)) {
             holder.relVacation.visibility = View.GONE
             holder.orderTypeTxtView.setText(Constants.ONE_TIME_BUYER)
         }
-        if (onGoingOrderList[position].type.equals(Constants.TOPUP_ORDER)){
+        if (onGoingOrderList[position].type.equals(Constants.TOPUP_ORDER)) {
             holder.relVacation.visibility = View.GONE
             holder.orderTypeTxtView.setText(Constants.ONE_TIME_BUYER)
         }
-        if (onGoingOrderList[position].type.equals(Constants.SUBSCRIPTION_ORDER)){
+        if (onGoingOrderList[position].type.equals(Constants.SUBSCRIPTION_ORDER)) {
             holder.relVacation.visibility = View.VISIBLE
             holder.orderTypeTxtView.setText(Constants.SUBSCRIBER)
         }
@@ -125,7 +140,6 @@ class OnGoingOrderListAdapter(
                 .error(R.drawable.ic_thumbnail)
                 .placeholder(R.drawable.ic_thumbnail)
                 .into(productImgView)
-
 
             holder.itemProductListLnrLayout.addView(mView)
         }

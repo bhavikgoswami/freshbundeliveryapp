@@ -106,5 +106,7 @@ class Constants {
         const val CASH_ON_DELIVERY = "Cash On Delivery"
         const val WALLET = "Wallet"
 
+        const val ORDER_CANCELLED = "Cancelled"
+
     }
 }

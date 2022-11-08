@@ -240,9 +240,7 @@ class MainActivity : BaseActivity() {
                         Utils.hideProgress()
                         val errorData = loadingState.errorData
                         val errorCode = errorData!!.errorCode
-
                         checkErrorCode(errorData.errorCode)
-
                     }
                 }
             }
