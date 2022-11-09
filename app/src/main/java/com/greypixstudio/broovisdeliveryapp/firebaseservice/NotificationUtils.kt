@@ -72,7 +72,7 @@ fun NotificationManager.sendNotification(
         applicationContext,
         0,
         intentNotif,
-        PendingIntent.FLAG_IMMUTABLE
+        PendingIntent.FLAG_MUTABLE or PendingIntent.FLAG_IMMUTABLE
     )
 
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

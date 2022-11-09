@@ -190,7 +190,7 @@ class VerifyMpinActivity : BaseActivity() {
 
         if (Paper.book().contains(Constants.USER_DETAILS)) {
             val userDetail = Paper.book().read<User>(Constants.USER_DETAILS)
-            jsonObject.put("mobile", userDetail.primaryContactNo)
+            jsonObject.put("mobile", userDetail!!.primaryContactNo)
         }
 
         jsonObject.put(Constants.LBL_MPIN, mpin)

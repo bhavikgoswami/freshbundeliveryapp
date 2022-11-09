@@ -330,7 +330,8 @@ class UseCurrentAddressActivity : BaseActivity(), OnMapReadyCallback , GoogleMap
           try {
                 if (geo == null)
                     geo = Geocoder(this, Locale.getDefault());
-                var address: List<Address> = geo.getFromLocation(it.latitude, it.longitude, 1);
+                var address: List<Address> =
+                    geo.getFromLocation(it.latitude, it.longitude, 1) as List<Address>;
                 if (address.isNotEmpty()) {
                     /*map!!.addMarker(
                         MarkerOptions().position(it).title(

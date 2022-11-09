@@ -17,7 +17,7 @@ import com.greypixstudio.broovisdeliveryapp.utils.Constants
 import com.greypixstudio.broovisdeliveryapp.utils.Utils
 import com.greypixstudio.broovisdeliveryapp.viewmodel.orderdetail.OrderDetailViewModel
 import io.paperdb.Paper
-import kotlinx.android.synthetic.main.activity_otpactivity.*
+import kotlinx.android.synthetic.main.activity_verify_vacation_otpactivity.*
 import org.json.JSONObject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

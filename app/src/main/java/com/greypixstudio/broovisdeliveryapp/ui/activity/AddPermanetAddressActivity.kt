@@ -1,7 +1,6 @@
 package com.greypixstudio.broovisdeliveryapp.ui.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -64,7 +63,7 @@ class AddPermanetAddressActivity : BaseActivity() {
         if (Paper.book().contains(Constants.PERMANENT_ADDRESS_DATA)) {
             binding.saveAddAddressDetailBtn.visibility = View.VISIBLE
             val permanentAddressData =
-                Paper.book().read<AddressData>(Constants.PERMANENT_ADDRESS_DATA)
+                Paper.book().read<AddressData>(Constants.PERMANENT_ADDRESS_DATA)!!
             val flatNo = permanentAddressData.currentBuildingName
             val area = permanentAddressData.currentArea
             val address = permanentAddressData.currentAddress
@@ -97,7 +96,7 @@ class AddPermanetAddressActivity : BaseActivity() {
         binding.saveAddAddressDetailBtn.setOnClickListener {
             if (Paper.book().contains(Constants.CURRENT_ADDRESS_DATA)) {
                 val currentAddressData =
-                    Paper.book().read<AddressData>(Constants.CURRENT_ADDRESS_DATA)
+                    Paper.book().read<AddressData>(Constants.CURRENT_ADDRESS_DATA)!!
                 flatNo = currentAddressData.currentBuildingName
                 area = currentAddressData.currentArea
                 address = currentAddressData.currentAddress
@@ -138,7 +137,7 @@ class AddPermanetAddressActivity : BaseActivity() {
         binding.saveAddAddressUpdateBtn.setOnClickListener {
             if (Paper.book().contains(Constants.CURRENT_ADDRESS_DATA)) {
                 val currentAddressData =
-                    Paper.book().read<AddressData>(Constants.CURRENT_ADDRESS_DATA)
+                    Paper.book().read<AddressData>(Constants.CURRENT_ADDRESS_DATA)!!
                 flatNo = currentAddressData.currentBuildingName
                 area = currentAddressData.currentArea
                 address = currentAddressData.currentAddress

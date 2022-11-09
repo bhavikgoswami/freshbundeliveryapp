@@ -174,7 +174,6 @@ open class Utils {
          * get Address from latitude longitude
          */
 
-
         fun getAddressFromLocation(
             context: Context,
             latitude: Double,
@@ -183,7 +182,7 @@ open class Utils {
 //        https://stackoverflow.com/a/9409229
             var addresses: List<Address?>
             var geocoder = Geocoder(context, Locale.getDefault())
-            addresses = geocoder.getFromLocation(latitude, longitude, 1)
+            addresses = geocoder.getFromLocation(latitude, longitude, 1) as List<Address?>
             var strAddress = addresses[0]?.getAddressLine(0)
             var strCity = addresses[0]?.locality
             var strState = addresses[0]?.adminArea

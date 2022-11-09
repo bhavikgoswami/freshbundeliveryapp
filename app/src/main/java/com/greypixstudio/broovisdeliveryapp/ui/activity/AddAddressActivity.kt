@@ -55,7 +55,7 @@ class AddAddressActivity : BaseActivity() {
 
         if (Paper.book().contains(Constants.CURRENT_ADDRESS_DATA)) {
             binding.sameAsCurrentAddressCheckBox.isChecked = true
-            val currentAddressData = Paper.book().read<AddressData>(Constants.CURRENT_ADDRESS_DATA)
+            val currentAddressData = Paper.book().read<AddressData>(Constants.CURRENT_ADDRESS_DATA)!!
             val flatNo = currentAddressData.currentBuildingName
             val area = currentAddressData.currentArea
             val address = currentAddressData.currentAddress
