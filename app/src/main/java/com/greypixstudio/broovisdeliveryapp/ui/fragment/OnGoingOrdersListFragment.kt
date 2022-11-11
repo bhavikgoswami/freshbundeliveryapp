@@ -122,9 +122,17 @@ class OnGoingOrdersListFragment : BaseFragment(), OnGoingOrderListAdapter.OnItem
                             val errorCode = errorData?.errorCode
                             val errorMessage = errorData?.message
                             if (errorCode == 200) {
-                                binding.orderListRecyclerView.visibility = View.GONE
-                                binding.emptyCartImgView.visibility = View.VISIBLE
-
+                                if (upcomingOrderList.size == 0) {
+                                    binding.orderListRecyclerView.visibility = View.GONE
+                                    binding.emptyCartImgView.visibility = View.VISIBLE
+                                } else {
+                                    getOrderDetailListObserver()
+                                    Toast.makeText(
+                                        requireActivity(),
+                                        errorData.message,
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
                             } else {
                                 checkErrorCode(errorCode!!)
                                 Toast.makeText(
@@ -141,12 +149,14 @@ class OnGoingOrdersListFragment : BaseFragment(), OnGoingOrderListAdapter.OnItem
         }
     }
 
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         deliveredOrderListCountHandledLivaData.observe(viewLifecycleOwner) {
             if (it.getContentIfNotHandled() == true) {
                 getOrderDetailListObserver()
-              //  orderDeliveredObserver(onGoingOrderList.type, onGoingOrderList.orderNumber)
+                //  orderDeliveredObserver(onGoingOrderList.type, onGoingOrderList.orderNumber)
 
             }
         }
@@ -154,7 +164,7 @@ class OnGoingOrdersListFragment : BaseFragment(), OnGoingOrderListAdapter.OnItem
     }
 
     override fun onDeliveredClick(onGoingOrderList: Order, position: Int) {
-        if (onGoingOrderList.paymentFlag=="1") {
+        if (onGoingOrderList.paymentFlag == "1") {
             val bundle = Bundle()
             bundle.putString(Constants.ORDER_TYPE, onGoingOrderList.type)
             bundle.putString(Constants.ORDER_NUMBER, onGoingOrderList.orderNumber)
@@ -203,7 +213,15 @@ class OnGoingOrdersListFragment : BaseFragment(), OnGoingOrderListAdapter.OnItem
                         getString(R.string.msg_delivered_order),
                         Toast.LENGTH_SHORT
                     ).show()
+                } else {
+                    getOrderDetailListObserver()
+                    Toast.makeText(
+                        requireActivity(),
+                        orderDeliveredData.message,
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
+
             }
         }
         /**
@@ -223,15 +241,30 @@ class OnGoingOrdersListFragment : BaseFragment(), OnGoingOrderListAdapter.OnItem
                     LoadingState.Status.FAILED -> {
                         Utils.hideProgress()
                         val errorData = loadingState.errorData
+                        getOrderDetailListObserver()
+                        if (errorData!!.message != null) {
+                            Toast.makeText(
+                                requireActivity(),
+                                errorData!!.message,
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
                         errorData.let {
+                            getOrderDetailListObserver()
                             val errorCode = errorData?.errorCode
                             val errorMessage = errorData?.message
-                            if (errorMessage != null) {
-                                Toast.makeText(
-                                    requireActivity(),
-                                    errorData.message,
-                                    Toast.LENGTH_SHORT
-                                ).show()
+                            if (errorCode == 200) {
+                                if (upcomingOrderList.size == 0) {
+                                    binding.orderListRecyclerView.visibility = View.GONE
+                                    binding.emptyCartImgView.visibility = View.VISIBLE
+                                } else {
+                                    getOrderDetailListObserver()
+                                    Toast.makeText(
+                                        requireActivity(),
+                                        errorData.message,
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
                             }
                         }
                     }

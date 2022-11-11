@@ -80,6 +80,13 @@ class AccountFragment : BaseFragment() {
         }
         binding.TermPolicyRLtLayout.setOnClickListener {
             val activityIntent = Intent(requireContext(), TermPrivacyPolicyActivity::class.java)
+            activityIntent.putExtra(Constants.WEB_VIEW_URL, Constants.TERMS_AND_CONDITION_URL)
+            activityIntent.putExtra(Constants.SCREEN_TITLE, getString(R.string.lbl_terms_conditions))
+            startActivity(activityIntent)
+
+        }
+        binding.privacyPolicyRltLayout.setOnClickListener {
+            val activityIntent = Intent(requireContext(), TermPrivacyPolicyActivity::class.java)
             activityIntent.putExtra(Constants.WEB_VIEW_URL, Constants.PRIVACY_POLICY_URL)
             activityIntent.putExtra(Constants.SCREEN_TITLE, getString(R.string.lbl_privacy_policy))
             startActivity(activityIntent)

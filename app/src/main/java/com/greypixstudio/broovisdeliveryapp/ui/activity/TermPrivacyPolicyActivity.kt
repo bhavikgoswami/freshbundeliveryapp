@@ -23,24 +23,26 @@ class TermPrivacyPolicyActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_term_privacy_policy)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_term_privacy_policy)
 
-        if(intent.hasExtra(Constants.WEB_VIEW_URL)){
+        if (intent.hasExtra(Constants.WEB_VIEW_URL)) {
             url = intent.getStringExtra(Constants.WEB_VIEW_URL).toString()
             title = intent.getStringExtra(Constants.SCREEN_TITLE).toString()
-            if(url.trim().isEmpty())
+            if (url.trim().isEmpty())
                 finish()
-        }else{
+
+            init()
+        } else {
             finish()
         }
-        init()
+
     }
 
     @SuppressLint("SetJavaScriptEnabled")
-    fun init(){
+    fun init() {
 
         toolbarLayoutBinding = binding.termPolicyToolbar
-        binding.termPolicyToolbar.toolbarNametxtView.text = getText(R.string.lbl_term_privacy_amp_policy)
+        binding.termPolicyToolbar.toolbarNametxtView.text = title
         binding.termPolicyToolbar.backACImageView.setOnClickListener {
             onBackPressed()
         }

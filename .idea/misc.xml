@@ -46,6 +46,7 @@
         <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_upload.xml" value="0.1455" />
         <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_use_current_location.xml" value="0.1455" />
         <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_vacation.xml" value="0.1455" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/ic_wallet.xml" value="0.106" />
         <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/progress_drawable.xml" value="0.1455" />
         <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/progress_truck.xml" value="0.1455" />
         <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/drawable/selector_bottom_menu.xml" value="0.1455" />
@@ -63,8 +64,10 @@
         <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/layout/activity_notifications.xml" value="0.20416666666666666" />
         <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/layout/activity_profile.xml" value="0.1" />
         <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/layout/activity_splash.xml" value="0.1" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/layout/activity_term_privacy_policy.xml" value="0.12291666666666666" />
         <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/layout/activity_under_review_profile.xml" value="0.20416666666666666" />
         <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/layout/activity_verify_mpin.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/layout/fragment_account.xml" value="0.18385416666666668" />
         <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/layout/fragment_home.xml" value="0.15" />
         <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/layout/fragment_payment_q_r_dialog.xml" value="0.18854166666666666" />
         <entry key="..\:/Projects/freshbundeliveryapp/app/src/main/res/layout/row_delivered_order_list.xml" value="0.33" />

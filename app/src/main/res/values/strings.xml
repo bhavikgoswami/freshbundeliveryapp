@@ -266,8 +266,10 @@
     <string name="lbl_recieve_cash">Are you sure you want to <b>receive Cash payment</b> and  delivered the order? </string>
     <string name="lbl_recieve_by_upi">Are you sure you want to <b>receive UPI payment</b> and  delivered the order?</string>
     <string name="lbl_rs">\u20B9</string>
-    <string name="lbl_please_upload_licence_image">Please Upload Adhar Image</string>
-    <string name="lbl_please_upload_adhar_card_image">Please upload Adhar card Image</string>
+    <string name="lbl_please_upload_licence_image">Please Upload Licence Image</string>
+    <string name="lbl_please_upload_adhar_card_image">Please upload Aadhaar card Image</string>
     <string name="msg_payment_recieved">Payment Received.</string>
+    <string name="lbl_terms_conditions">Terms &amp; conditions</string>
+    <string name="lbl_read_privacy_policy">Read our policy</string>
 
 </resources>

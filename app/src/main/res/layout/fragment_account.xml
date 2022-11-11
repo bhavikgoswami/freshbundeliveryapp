@@ -7,19 +7,19 @@
     <data class="ProfileFragmentBinding" />
 
     <RelativeLayout
-        android:background="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <LinearLayout
-                android:padding="@dimen/_8sdp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="@dimen/_8sdp">
 
                 <RelativeLayout
                     android:id="@+id/profilePicImageView"
@@ -36,20 +36,20 @@
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:visibility="gone"
                         android:layout_alignParentBottom="true"
                         android:layout_marginStart="-10dp"
                         android:layout_toRightOf="@id/profilePicImageView1"
-                        android:src="@drawable/ic_add_img" />
+                        android:src="@drawable/ic_add_img"
+                        android:visibility="gone" />
 
                 </RelativeLayout>
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/nameTxtView"
-                    android:layout_gravity="center"
                     style="@style/FourteenwithBlackTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_marginTop="@dimen/_5sdp"
                     app:layout_constraintEnd_toEndOf="@+id/endGuideline"
                     app:layout_constraintStart_toStartOf="@+id/startGuideline"
@@ -58,8 +58,8 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/emailTxtView"
                     android:layout_width="wrap_content"
-                    android:layout_gravity="center"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_marginTop="@dimen/_2sdp"
                     app:layout_constraintEnd_toEndOf="@+id/endGuideline"
                     app:layout_constraintStart_toStartOf="@+id/startGuideline"
@@ -67,10 +67,10 @@
 
                 <RelativeLayout
                     android:id="@+id/profileSettingRLtLayout"
-                    android:padding="@dimen/_8sdp"
-                    android:layout_marginTop="@dimen/_8sdp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:padding="@dimen/_8sdp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -105,9 +105,9 @@
 
                 <RelativeLayout
                     android:id="@+id/documentVerificationRLtLayout"
-                    android:padding="@dimen/_8sdp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_8sdp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -142,9 +142,9 @@
 
                 <RelativeLayout
                     android:id="@+id/addressRLtLayout"
-                    android:padding="@dimen/_8sdp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_8sdp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -179,9 +179,9 @@
 
                 <RelativeLayout
                     android:id="@+id/bankAccRLtLayout"
-                    android:padding="@dimen/_8sdp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_8sdp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -216,9 +216,9 @@
 
                 <RelativeLayout
                     android:id="@+id/ReferAppRLtLayout"
-                    android:padding="@dimen/_8sdp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_8sdp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -253,9 +253,9 @@
 
                 <RelativeLayout
                     android:id="@+id/HelpAndSupportRLtLayout"
-                    android:padding="@dimen/_8sdp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_8sdp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -290,9 +290,9 @@
 
                 <RelativeLayout
                     android:id="@+id/TermPolicyRLtLayout"
-                    android:padding="@dimen/_8sdp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_8sdp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -304,7 +304,7 @@
                             style="@style/TwelveBlackBoldTheme"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/lbl_term_privacy_amp_policy" />
+                            android:text="@string/lbl_terms_conditions" />
 
                         <androidx.appcompat.widget.AppCompatTextView
                             style="@style/TwelvewithgrayTheme"
@@ -325,12 +325,49 @@
                         app:tint="@color/color_theme" />
                 </RelativeLayout>
 
+                <RelativeLayout
+                    android:id="@+id/privacyPolicyRltLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_8sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toStartOf="@id/ivArrow8"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/TwelveBlackBoldTheme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lbl_privacy_policy" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/TwelvewithgrayTheme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:text="@string/lbl_read_privacy_policy" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ivArrow8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_right_arrow"
+                        app:tint="@color/color_theme" />
+                </RelativeLayout>
+
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/logoutTxtView"
                     style="@style/TwelveBlackBoldTheme"
-                    android:layout_marginTop="@dimen/_8sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
                     android:padding="@dimen/_8sdp"
                     android:text="@string/lbl_logout" />
 
