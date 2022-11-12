@@ -152,28 +152,28 @@ class DrivingLicenseUploadActivity : BaseActivity() {
             }
         }
 
-       /* open class DrivingNumberTextWatcher(private val editText: EditText) : TextWatcher {
-            private val isDelete = false
-            private var lastContentLength = 0
-            private var contentLength = 0
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
-                ////Log.d("lastContent","before : "+ s.length.toString())
-                contentLength = s.length
-            }
+        /* open class DrivingNumberTextWatcher(private val editText: EditText) : TextWatcher {
+             private val isDelete = false
+             private var lastContentLength = 0
+             private var contentLength = 0
+             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
+                 ////Log.d("lastContent","before : "+ s.length.toString())
+                 contentLength = s.length
+             }
 
-            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
 
-            }
+             }
 
-            override fun afterTextChanged(s: Editable) {
-                //The requirement is 130 1234 4567, the fourth and fifth digit spaces in the middle are preceded by spaces
-              //  val sb = StringBuffer(s)
-                //StringBuffer.length() is the length, so the subscript starts from 1
-                //If it is not a space character, insert a space character in front of it
+             override fun afterTextChanged(s: Editable) {
+                 //The requirement is 130 1234 4567, the fourth and fifth digit spaces in the middle are preceded by spaces
+               //  val sb = StringBuffer(s)
+                 //StringBuffer.length() is the length, so the subscript starts from 1
+                 //If it is not a space character, insert a space character in front of it
 
-                ////Log.d("lastContent","after : "+ s.length.toString())
+                 ////Log.d("lastContent","after : "+ s.length.toString())
 
-             *//*   if (s.length >= 5) {
+              *//*   if (s.length >= 5) {
                     val chars = s.toString().toCharArray()
                     //The number subscript starts at 0
                     if (chars[4] != ' ') {
@@ -259,7 +259,7 @@ class DrivingLicenseUploadActivity : BaseActivity() {
                             licenseFrontSideFile?.asRequestBody("multipart/form-data".toMediaTypeOrNull())
                         frontSiderequestBody?.let {
                             licenseFrontMultipart = MultipartBody.Part.createFormData(
-                                JsonConstants.frontSide  ,
+                                JsonConstants.frontSide,
                                 licenseFrontSideFile?.name,
                                 it
                             )
@@ -309,9 +309,7 @@ class DrivingLicenseUploadActivity : BaseActivity() {
             val licenceRegisterDate = binding.registrationDateEdtView.text.toString().trim()
             val licenceExpiryDate = binding.expiryDateEdtView.text.toString().trim()
             val licenseType = selectedLicenceType
-            if (licenseFrontSideFile == null || licenseBackSideFile == null) {
-                showToast(getString(R.string.lbl_please_upload_licence_image))
-            } else if (deliveryUsername.isEmpty()) {
+            if (deliveryUsername.isEmpty()) {
                 showToast(getString(R.string.lbl_Please_enter_username))
             } else if (number.isEmpty()) {
                 showToast(getString(R.string.lbl_Please_enter_licenceNumber))
@@ -794,7 +792,8 @@ class DrivingLicenseUploadActivity : BaseActivity() {
     private fun isAtSpaceDelimiter(currCount: Int): Boolean {
         return currCount == 4 || currCount == 9 || currCount == 14
     }
-     var cardNumber= ""
+
+    var cardNumber = ""
 
     private fun shouldIncrementOrDecrement(currCount: Int, shouldIncrement: Boolean): Boolean {
         return if (shouldIncrement) {
@@ -811,7 +810,7 @@ class DrivingLicenseUploadActivity : BaseActivity() {
         } else {
             sb.setLength(sb.length - 1)
         }
-        cardNumber=sb.toString()
+        cardNumber = sb.toString()
         //cardNumber=setSelection(sb.length)
     }
 }

@@ -241,6 +241,7 @@ class MainActivity : BaseActivity() {
                         val errorData = loadingState.errorData
                         val errorCode = errorData!!.errorCode
                         checkErrorCode(errorData.errorCode)
+                        binding.notificationImgView.setImageResource(R.drawable.ic_notification)
                     }
                 }
             }
