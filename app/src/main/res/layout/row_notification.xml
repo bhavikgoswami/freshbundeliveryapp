@@ -13,26 +13,17 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingEnd="@dimen/_8sdp"
-        android:paddingTop="@dimen/_8sdp"
         android:background="@color/white"
+        android:paddingTop="@dimen/_8sdp"
+        android:paddingEnd="@dimen/_8sdp"
         android:paddingBottom="@dimen/_8sdp">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/unmarked_notification"
-            android:layout_width="@dimen/_8sdp"
-            android:layout_height="@dimen/_8sdp"
-            android:id="@+id/markImageView"/>
-
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/notificationImgView"
             android:layout_width="@dimen/_16sdp"
             android:layout_height="@dimen/_16sdp"
-            android:layout_marginStart="-4dp"
             android:layout_centerVertical="true"
+            android:layout_marginStart="-4dp"
             android:rotation="-90"
             android:src="@drawable/shape_notification_unread_status" />
 
@@ -45,9 +36,17 @@
             android:layout_toRightOf="@id/notificationImgView"
             tools:text="Title" />
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/markImageView"
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_8sdp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/unmarked_notification" />
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/notificationDescTxtView"
-            style="@style/TenTextSemiboldTheme"
+            style="@style/TenBlackRegularTheme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/notificationTitleTxtView"
@@ -66,6 +65,17 @@
             android:layout_marginTop="@dimen/_4sdp"
             android:layout_toRightOf="@id/notificationImgView"
             tools:text="May 05, 2021" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/contentImgView"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:padding="@dimen/_4sdp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_160sdp"
+            android:layout_below="@id/notificationTimeTxtView"
+            android:scaleType="fitCenter"
+            android:visibility="gone" />
+
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

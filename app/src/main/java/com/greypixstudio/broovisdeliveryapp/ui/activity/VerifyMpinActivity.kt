@@ -224,7 +224,7 @@ class VerifyMpinActivity : BaseActivity() {
                                 mIntent =
                                     Intent(
                                         this@VerifyMpinActivity,
-                                        UnderReviewProfileActivity::class.java
+                                         MainActivity::class.java
                                     )
                             } else if (verifyMpinData.results.user.verifiedStatus == "Reviewed") {
 
@@ -257,7 +257,7 @@ class VerifyMpinActivity : BaseActivity() {
                                 mIntent =
                                     Intent(
                                         this@VerifyMpinActivity,
-                                        UnderReviewProfileActivity::class.java
+                                        MainActivity::class.java
                                     )
                             } else if (verifyMpinData.results.user.verifiedStatus == "Approved") {
 
@@ -274,7 +274,7 @@ class VerifyMpinActivity : BaseActivity() {
                             } else {
                                 mIntent = Intent(
                                     this@VerifyMpinActivity,
-                                    UnderReviewProfileActivity::class.java
+                                    MainActivity::class.java
                                 )
                             }
                             mIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)

@@ -33,6 +33,7 @@ class Constants {
         const val NOTIFICATION_TITLE = "title"
         const val NOTIFICATION_ORDER_ID = "order_id"
         const val NOTIFICATION_CHANNEL_ID = "122"
+        const val NOTIFICATION_URL = "image_url"
 
         const val NOTIFICATION_PROFILE_FIRST_REVIEW = "Profile first review!"
         const val NOTIFICATION_DOCUMENT_VERIFIED = "Document verified!"

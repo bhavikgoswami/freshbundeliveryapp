@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.greypixstudio.broovisdeliveryapp.R
 import com.greypixstudio.broovisdeliveryapp.model.notification.notificationlist.Record
 import com.greypixstudio.broovisdeliveryapp.utils.Constants
@@ -28,6 +29,7 @@ class NotificationAdapter(
         val notificationDescTxtView: TextView = itemView.findViewById(R.id.notificationDescTxtView)
         val notificationTimeTxtView: TextView = itemView.findViewById(R.id.notificationTimeTxtView)
         val markImageView: AppCompatImageView = itemView.findViewById(R.id.markImageView)
+        val contentImgView: AppCompatImageView = itemView.findViewById(R.id.contentImgView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -40,6 +42,16 @@ class NotificationAdapter(
         holder.notificationTitleTxtView.text = notificationList[position].title
         holder.notificationDescTxtView.text = notificationList[position].body
         holder.notificationTimeTxtView.text = notificationList[position].date
+        if (notificationList[position].image_url.isNotEmpty()) {
+            holder.contentImgView.visibility = View.VISIBLE
+            Glide.with(mContext)
+                .load(Constants.BASE_URL_IMAGE + notificationList[position].image_url)
+                .error(R.drawable.ic_thumbnail)
+                .placeholder(R.drawable.ic_thumbnail)
+                .into(holder.contentImgView)
+        } else {
+            holder.contentImgView.visibility = View.GONE
+        }
         if (notificationList[position].read_status == Constants.YES) {
             holder.markImageView.visibility = View.GONE
         } else {
