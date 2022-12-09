@@ -42,10 +42,10 @@ class NotificationAdapter(
         holder.notificationTitleTxtView.text = notificationList[position].title
         holder.notificationDescTxtView.text = notificationList[position].body
         holder.notificationTimeTxtView.text = notificationList[position].date
-        if (notificationList[position].image_url.isNotEmpty()) {
+        if (notificationList[position].image.isNotEmpty()) {
             holder.contentImgView.visibility = View.VISIBLE
             Glide.with(mContext)
-                .load(Constants.BASE_URL_IMAGE + notificationList[position].image_url)
+                .load(Constants.BASE_URL_IMAGE + notificationList[position].image)
                 .error(R.drawable.ic_thumbnail)
                 .placeholder(R.drawable.ic_thumbnail)
                 .into(holder.contentImgView)

@@ -83,7 +83,7 @@ fun NotificationManager.sendNotification(
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
         val importance = NotificationManager.IMPORTANCE_HIGH
 
-        if (messageBody.data[Constants.NOTIFICATION_URL]!!.isEmpty()) {
+        if (messageBody.data[Constants.NOTIFICATION_URL]!!.isNullOrEmpty()) {
             var builder =
                 NotificationCompat.Builder(applicationContext, Constants.NOTIFICATION_CHANNEL_ID)
 
@@ -141,8 +141,6 @@ fun NotificationManager.sendNotification(
                 .setTicker(applicationContext.getString(R.string.app_name))
                 .setVibrate(longArrayOf(100, 200, 300, 400, 500, 400, 300, 200, 400))
                 .priority = NotificationCompat.PRIORITY_HIGH
-
-
 
             NOTIFY_ID += 1
             val notification = builder.build()

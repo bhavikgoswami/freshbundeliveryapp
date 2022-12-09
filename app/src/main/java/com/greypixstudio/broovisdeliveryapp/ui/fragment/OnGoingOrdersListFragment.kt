@@ -75,7 +75,6 @@ class OnGoingOrdersListFragment : BaseFragment(), OnGoingOrderListAdapter.OnItem
                     upcomingOrderList.clear()
                     if (getOrderListDetailData.results.orders.size != 0) {
                         upcomingOrderList.addAll(getOrderListDetailData.results.orders)
-                        upcomingOrderList.reverse()
 
                         mOnGoingOrderListAdapter =
                             OnGoingOrderListAdapter(requireActivity(), upcomingOrderList, this)

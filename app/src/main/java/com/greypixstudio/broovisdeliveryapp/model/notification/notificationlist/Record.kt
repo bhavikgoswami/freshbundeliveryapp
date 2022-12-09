@@ -38,5 +38,5 @@ data class Record(
     val updatedBy: Any,
     @SerializedName("read_status")
     val read_status: String,
-    val image_url: String
+    val image: String
 )
