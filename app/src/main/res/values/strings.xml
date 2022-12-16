@@ -97,7 +97,7 @@
     <string name="lbl_on_going_order">On Going Orders</string>
     <string name="lbl_delivered">Delivered</string>
     <string name="lbl_delivery_time">Delivery Time</string>
-    <string name="lbl_order_id">Order ID</string>
+    <string name="lbl_order_id">Order Number</string>
     <string name="lbl_map">Map</string>
     <string name="lbl_set_mpin">Set Mpin</string>
     <string name="msg_set_mpin_successfully">Mpin Successfully Set</string>

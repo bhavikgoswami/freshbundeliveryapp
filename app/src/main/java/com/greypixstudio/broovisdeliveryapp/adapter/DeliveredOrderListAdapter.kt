@@ -60,7 +60,7 @@ class DeliveredOrderListAdapter(
         holder.deliveryTimeTxtView.text = deliveredOrderList[position].deliveryTime
         holder.totalQualityOrderTextView.text =
             deliveredOrderList[position].totalQty.toInt().toString()
-        holder.orderIdTxtView.text = deliveredOrderList[position].orderId.toString()
+        holder.orderIdTxtView.text = deliveredOrderList[position].oRDERNUMBER.toString()
         holder.addressTxtView.text = deliveredOrderList[position].address
         if (deliveredOrderList[position].paymentBy == Constants.WALLET_AND_CASH_ON_DELIVERY
             || deliveredOrderList[position].paymentBy == Constants.CASH_ON_DELIVERY

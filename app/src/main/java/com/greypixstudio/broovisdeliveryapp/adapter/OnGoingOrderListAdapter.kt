@@ -59,7 +59,7 @@ class OnGoingOrderListAdapter(
         holder.customerNameTxtView.text = order.customerName
         holder.deliveryTimeTxtView.text = order.deliveryTime
         holder.totalQualityOrderTextView.text = order.totalQty.toInt().toString()
-        holder.orderIdTxtView.text = order.orderId.toString()
+        holder.orderIdTxtView.text = order.orderNumber.toString()
         holder.addressTxtView.text = order.address
         val latitudes = order.latitudes
         val longitudes = order.longitudes

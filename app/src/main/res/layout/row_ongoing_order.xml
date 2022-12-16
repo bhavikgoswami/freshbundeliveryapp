@@ -328,7 +328,6 @@
                     android:layout_alignEnd="@id/lblNotDel"
                     android:background="@color/color_bottomsheet" />
             </RelativeLayout>
-
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
