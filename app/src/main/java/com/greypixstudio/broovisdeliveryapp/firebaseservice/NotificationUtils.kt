@@ -11,6 +11,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Build
+import android.util.Log
 import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
 
@@ -82,8 +83,8 @@ fun NotificationManager.sendNotification(
 
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
         val importance = NotificationManager.IMPORTANCE_HIGH
-
-        if (messageBody.data[Constants.NOTIFICATION_URL]!!.isNullOrEmpty()) {
+Log.e("messageBody","messageBody "+messageBody)
+        if (!messageBody.data.containsKey(Constants.NOTIFICATION_URL)){
             var builder =
                 NotificationCompat.Builder(applicationContext, Constants.NOTIFICATION_CHANNEL_ID)
 
